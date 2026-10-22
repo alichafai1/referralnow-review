@@ -1,0 +1,541 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Cta from '../components/Cta.astro';
+import { affiliateUrl } from '../data/offer';
+
+const title = 'ReferralNow Premium Review: Turn Word-of-Mouth Into Tracked Sales';
+const description =
+	'ReferralNow Premium is a one-time $49 referral system that tracks real word-of-mouth sales, scores fraud, and rewards customers after the sale. Full review.';
+
+const faqs = [
+	{
+		q: 'What is ReferralNow Premium?',
+		a: 'ReferralNow Premium is a plug-and-play referral system. Your customers get a personal link and code, their friends claim an offer, and a reward is released only after a real sale is confirmed.',
+	},
+	{
+		q: 'Is it a monthly subscription?',
+		a: 'No. The launch price is a one-time $49 payment, with no monthly software fee on this plan. Texts go out from your own Twilio number, so normal message charges still apply to the texts you send.',
+	},
+	{
+		q: 'Does it work with Shopify/WooCommerce?',
+		a: 'Yes. Shopify, WooCommerce, BigCommerce, Wix, and Squarespace connect directly, and each friend can get a single-use discount. Other carts, funnels, and websites can confirm a sale with a thank-you tag. It also works at a physical counter with no website.',
+	},
+	{
+		q: 'How does it prevent fake referrals?',
+		a: 'Every claim gets a 0–100 fraud score before a reward moves. Self-referrals, bursts of claims, and shared devices are flagged in plain language. Rewards also wait through your refund window, so a refunded order does not pay out.',
+	},
+	{
+		q: 'Is there a money-back guarantee?',
+		a: 'Yes. The seller gives you 14 days from purchase. If ReferralNow is not doing what the sales page says, their support team will try to get it running first. You can request a refund within those 14 days, under their refund policy.',
+	},
+	{
+		q: 'How do I claim the bonuses?',
+		a: 'Use a button on this page during the launch window. The seller’s launch bonuses — message templates, print files, a reward calculator, and a 30-day playbook — are tied to that one-time price. The extra bonuses I arranged are listed on the bonuses page.',
+	},
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Product',
+			name: 'ReferralNow Premium',
+			description,
+			image:
+				'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80',
+			brand: {
+				'@type': 'Brand',
+				name: 'ReferralNow',
+			},
+			review: {
+				'@type': 'Review',
+				author: {
+					'@type': 'Organization',
+					name: 'ReferralNow Review',
+				},
+				reviewRating: {
+					'@type': 'Rating',
+					ratingValue: '4.6',
+					bestRating: '5',
+				},
+				reviewBody:
+					'ReferralNow Premium solves the tracking gap in word-of-mouth marketing. It is a one-time payment that confirms real sales, scores fraud, and rewards advocates automatically.',
+			},
+			aggregateRating: {
+				'@type': 'AggregateRating',
+				ratingValue: '4.6',
+				bestRating: '5',
+				worstRating: '1',
+				ratingCount: '1',
+			},
+			offers: {
+				'@type': 'Offer',
+				price: '49.00',
+				priceCurrency: 'USD',
+				availability: 'https://schema.org/InStock',
+				url: affiliateUrl,
+			},
+		},
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: item.a,
+				},
+			})),
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} schema={schema}>
+	<link slot="head" rel="preconnect" href="https://images.unsplash.com" />
+
+	<section class="hero">
+		<div class="container">
+			<p class="eyebrow">Independent review · $49 once</p>
+			<h1>ReferralNow Premium Review: Turn Word-of-Mouth Into Tracked Sales</h1>
+			<p class="subhead">
+				Stop renting customers from expensive ad platforms. ReferralNow is the plug-and-play referral OS
+				that turns your happy customers into tracked advocates, proves every sale is real, and rewards
+				them automatically. Here is my full breakdown.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium + My Bonuses →" />
+			<div class="video-frame" id="watch">
+				<span class="play-icon" aria-hidden="true">
+					<svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+						<path d="M11 8.2v11.6l10-5.8-10-5.8Z" fill="#2563EB"></path>
+					</svg>
+				</span>
+				<p>Watch How ReferralNow Works</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="verdict-section" id="review" aria-label="Quick verdict">
+		<div class="container">
+			<article class="verdict-card">
+				<div>
+					<p class="rating-score">4.6<span>/5</span></p>
+					<p class="rating-label">Our score</p>
+				</div>
+				<div>
+					<p class="best-for">
+						<strong>Best for:</strong> E-commerce owners, Local Businesses, and Affiliate Marketers.
+					</p>
+					<p class="best-for">
+						<strong>Verdict:</strong> ReferralNow solves the biggest problem in word-of-mouth
+						marketing—tracking. It's a one-time payment that replaces monthly referral software
+						subscriptions.
+					</p>
+				</div>
+				<Cta class="btn" label="Get ReferralNow Premium →" />
+			</article>
+		</div>
+	</section>
+
+	<section class="section" id="problem" aria-labelledby="problem-heading">
+		<div class="container problem-grid">
+			<div>
+				<h2 class="section-heading" id="problem-heading">
+					Your Best Customers Are Already Recommending You. But You're Not Tracking It.
+				</h2>
+				<ul class="pain-list">
+					<li>
+						<span class="mark mark-no" aria-hidden="true">
+							<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+								<path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+							</svg>
+						</span>
+						<span>A customer tells a friend about you, but you never know it happened.</span>
+					</li>
+					<li>
+						<span class="mark mark-no" aria-hidden="true">
+							<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+								<path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+							</svg>
+						</span>
+						<span>You spend $40 on ads to find a stranger, while a warm referral goes cold.</span>
+					</li>
+					<li>
+						<span class="mark mark-no" aria-hidden="true">
+							<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+								<path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+							</svg>
+						</span>
+						<span>You can't reward your best advocates because you have no proof of the sale.</span>
+					</li>
+				</ul>
+				<p class="problem-close">
+					ReferralNow changes that. It makes word-of-mouth trackable, rewardable, and repeatable.
+				</p>
+				<Cta class="btn section-cta" label="Get ReferralNow Premium →" />
+			</div>
+			<img
+				class="problem-photo"
+				src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80"
+				width="1200"
+				height="800"
+				alt="A shop floor where customers already recommend the business in person"
+				loading="lazy"
+			/>
+		</div>
+	</section>
+
+	<section class="section section-alt" id="how" aria-labelledby="how-heading">
+		<div class="container">
+			<h2 class="section-heading" id="how-heading">From Recommendation to Rewarded Sale in 3 Steps</h2>
+			<p class="lede">
+				The loop is simple. A customer shares a link, a friend claims an offer, and you pay a reward
+				only after the sale is real. The screens below use sample names, not promised results.
+			</p>
+
+			<article class="step">
+				<div>
+					<p class="step-kicker">Step 1</p>
+					<h3>Customer Gets a Link.</h3>
+					<p>
+						Each advocate gets a personal page with one link and one code. No app to download and no
+						password to remember. They can share from a text, an email, or a QR card at your counter.
+					</p>
+				</div>
+				<div class="mockup" aria-hidden="true">
+					<div class="mockup-top"><span></span><span></span><span></span><strong>Advocate portal</strong></div>
+					<div class="mockup-body">
+						<p class="mock-hello">Hi, Sarah</p>
+						<p class="mock-label">Your referral link</p>
+						<div class="mock-link">
+							bloom.rfr.now/sarah
+							<span class="mock-chip">Copy</span>
+						</div>
+						<div class="mock-stats">
+							<div><strong>12</strong><span>Shares</span></div>
+							<div><strong>4</strong><span>Claims</span></div>
+							<div><strong>$45</strong><span>Balance</span></div>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<article class="step">
+				<div class="mockup" aria-hidden="true">
+					<div class="mockup-top"><span></span><span></span><span></span><strong>Offer page</strong></div>
+					<div class="mockup-body">
+						<p class="claim-brand">Bloom Studio · from Sarah</p>
+						<div class="claim-offer">
+							<strong>20% off your first visit</strong>
+							<span>Claim it on your phone. No account.</span>
+						</div>
+						<p class="claim-code">EMMA20</p>
+						<p class="mock-note">Single-use code · ready for the counter or checkout</p>
+						<div class="mock-action">Claim offer</div>
+					</div>
+				</div>
+				<div>
+					<p class="step-kicker">Step 2</p>
+					<h3>Friend Claims Offer.</h3>
+					<p>
+						The friend lands on a hosted offer page in your colors. They claim a reason to buy this
+						week and get a code. On a connected Shopify store, that discount can already be sitting
+						in the basket.
+					</p>
+				</div>
+			</article>
+
+			<article class="step">
+				<div>
+					<p class="step-kicker">Step 3</p>
+					<h3>You Get Paid & They Get Rewarded.</h3>
+					<p>
+						Staff confirm a counter sale in three taps, or your store reports the paid order. The
+						claim is scored for fraud, the reward waits out your refund window, and the advocate
+						gets one code to spend.
+					</p>
+				</div>
+				<div class="mockup" aria-hidden="true">
+					<div class="mockup-top"><span></span><span></span><span></span><strong>Approvals</strong></div>
+					<div class="mockup-body">
+						<div class="fraud-row">
+							<span>Emma · $85 sale confirmed</span>
+							<span class="score score-good">Fraud score 8</span>
+						</div>
+						<p class="mock-note">New device. Not a self-referral. Held through the refund window.</p>
+						<div class="payout">
+							<span>Sarah · $15 store credit ready</span>
+							<b>Pay</b>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium + My Bonuses →" />
+		</div>
+	</section>
+
+	<section class="section" id="features" aria-labelledby="features-heading">
+		<div class="container">
+			<h2 class="section-heading" id="features-heading">What Makes ReferralNow Premium Different?</h2>
+			<p class="lede">
+				Most referral tools make you pick a counter or a store, then trust that a code was real.
+				Premium is built to prove the sale first.
+			</p>
+			<div class="card-grid">
+				<article class="card">
+					<div class="feature-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none">
+							<circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"></circle>
+							<path d="M4 12h16M12 4c2.4 2.6 2.4 13.4 0 16M12 4c-2.4 2.6-2.4 13.4 0 16" stroke="currentColor" stroke-width="1.8"></path>
+						</svg>
+					</div>
+					<h3>Works Everywhere</h3>
+					<p>
+						Integrates with Shopify, WooCommerce, Wix, BigCommerce, and Squarespace, plus any web
+						page or funnel. A counter works too, even with no website.
+					</p>
+				</article>
+				<article class="card">
+					<div class="feature-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none">
+							<path d="M8 12.5l2.4 2.4L16.5 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+							<rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.8"></rect>
+						</svg>
+					</div>
+					<h3>Real Sale Verification</h3>
+					<p>
+						No fake referrals. A sale is confirmed at the till, by a unique code, by the store’s
+						paid order, or by the thank-you page before anyone is paid.
+					</p>
+				</article>
+				<article class="card">
+					<div class="feature-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none">
+							<path d="M12 3.5l7 2.5v6.2c0 4.2-2.8 7.2-7 8.8-4.2-1.6-7-4.6-7-8.8V6l7-2.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+							<path d="M9 12.2l2 2 4-4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+						</svg>
+					</div>
+					<h3>Fraud Detection</h3>
+					<p>
+						Built-in checks score every claim from 0 to 100 and explain why. You can approve, reject,
+						or block a cheat before the reward moves.
+					</p>
+				</article>
+				<article class="card">
+					<div class="feature-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none">
+							<rect x="4" y="8" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
+							<path d="M8 8V7a4 4 0 0 1 8 0v1M12 12.5v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+						</svg>
+					</div>
+					<h3>Automated Rewards</h3>
+					<p>
+						Store credit, discounts, points, a free service, or a custom reward can release after
+						the sale. Advocates spend it with one code. Cash and gift cards are a Pro upgrade.
+					</p>
+				</article>
+				<article class="card">
+					<div class="feature-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none">
+							<path d="M12 4v16M7 8.5h7.2a2.8 2.8 0 0 1 0 5.6H8.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+						</svg>
+					</div>
+					<h3>No Monthly Fees</h3>
+					<p>
+						One-time payment, unlike referral apps that bill every month. The software fee stops at
+						checkout. Message costs, if you text, are billed by Twilio, not by ReferralNow.
+					</p>
+				</article>
+				<article class="card">
+					<div class="feature-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none">
+							<path d="M9 4.5v4M15 4.5v4M7.5 8.5h9V12a4.5 4.5 0 0 1-9 0V8.5ZM12 16.5V20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+						</svg>
+					</div>
+					<h3>No Coding Required</h3>
+					<p>
+						Plug-and-play. Launch from a trade pack or one sentence, then invite customers with a QR
+						code. A website widget is one line if you want it. No developer and no customer app.
+					</p>
+				</article>
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium →" />
+		</div>
+	</section>
+
+	<section class="section section-alt" id="pricing" aria-labelledby="pricing-heading">
+		<div class="container">
+			<h2 class="section-heading" id="pricing-heading">ReferralNow Premium Pricing: Is $49 Worth It?</h2>
+			<div class="price-layout">
+				<div>
+					<p class="lede">
+						The seller’s page lists ReferralNow Premium at $49 once during launch. That is the whole
+						referral loop for one business: links, offer pages, sale checks, fraud scores, and
+						rewards. Many referral apps charge a subscription in the $50–$100 a month range, and
+						that bill continues whether or not anyone refers you.
+					</p>
+					<ul class="compare-list">
+						<li>
+							<strong>$49 once</strong>
+							ReferralNow Premium launch price. No monthly software fee on this plan.
+						</li>
+						<li>
+							<strong>$50–$100 every month</strong>
+							What a typical referral subscription costs. Twelve months is $600–$1,200 before rewards.
+						</li>
+						<li>
+							<strong>You still choose the reward</strong>
+							The $49 does not pay your advocates. A store credit or free service comes from your
+							margin, and you can cap the campaign.
+						</li>
+					</ul>
+					<p class="fine-print">
+						If it brings you just one new customer, it pays for itself. The launch price is scheduled
+						to rise after November 14, 2026 at 11:59 PM ET, and the launch bonuses leave with it.
+						This is not an income guarantee.
+					</p>
+				</div>
+				<div class="price-card">
+					<p>Launch price · one time</p>
+					<p class="price-amount">$49 <span>once</span></p>
+					<p>Login is emailed when you buy. 14-day money-back window.</p>
+					<Cta class="btn btn-lg" label="Lock in Your $49 Access →" />
+				</div>
+			</div>
+			<p>
+				<a class="text-link" href="/referralnow-pricing">Read the full Pricing & Bundle breakdown →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section" id="pros-cons" aria-labelledby="pros-heading">
+		<div class="container">
+			<h2 class="section-heading" id="pros-heading">Pros and cons</h2>
+			<p class="lede">The useful parts are real. So are the limits. Both belong in the decision.</p>
+			<div class="split-2">
+				<article class="pro-card">
+					<h3>Pros</h3>
+					<ul class="check-list">
+						<li>
+							<span class="mark mark-yes" aria-hidden="true">✓</span>
+							<span>One-time payment, with no monthly fee for the software.</span>
+						</li>
+						<li>
+							<span class="mark mark-yes" aria-hidden="true">✓</span>
+							<span>Tracks real sales before a reward is released.</span>
+						</li>
+						<li>
+							<span class="mark mark-yes" aria-hidden="true">✓</span>
+							<span>Works with existing stores, funnels, and a physical counter.</span>
+						</li>
+						<li>
+							<span class="mark mark-yes" aria-hidden="true">✓</span>
+							<span>No coding and no app for your customers.</span>
+						</li>
+					</ul>
+				</article>
+				<article class="con-card">
+					<h3>Cons</h3>
+					<ul class="check-list">
+						<li>
+							<span class="mark mark-warn" aria-hidden="true">!</span>
+							<span>You need to promote it to your customers. A link nobody sees will not sell.</span>
+						</li>
+						<li>
+							<span class="mark mark-warn" aria-hidden="true">!</span>
+							<span>
+								The rewards come out of your pocket. That is still usually cheaper than buying the
+								same customer from ads.
+							</span>
+						</li>
+						<li>
+							<span class="mark mark-warn" aria-hidden="true">!</span>
+							<span>Texts use your own Twilio number, so message fees are separate from the $49.</span>
+						</li>
+					</ul>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section-alt" id="who" aria-labelledby="who-heading">
+		<div class="container">
+			<h2 class="section-heading" id="who-heading">Who Is This For?</h2>
+			<p class="lede">
+				It fits any sale you can confirm, whether that sale happens at a counter, on a sales page, or
+				inside a store checkout.
+			</p>
+			<img
+				class="band-photo"
+				src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=80"
+				width="1400"
+				height="800"
+				alt="A customer paying in person, the kind of sale a referral program can track"
+				loading="lazy"
+			/>
+			<div class="audience-grid">
+				<article class="card">
+					<h3>E-commerce Owners</h3>
+					<p>Turn happy buyers into a sales force. Paid orders confirm with the real order value, without a spreadsheet.</p>
+				</article>
+				<article class="card">
+					<h3>Local Businesses</h3>
+					<p>Track referrals from your counter or website. A QR code and a four-digit till PIN are enough to start.</p>
+				</article>
+				<article class="card">
+					<h3>Affiliate Marketers</h3>
+					<p>Build a referral army for your offers. Point advocate links at a sales page and confirm the sale on the thank-you page.</p>
+				</article>
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium →" />
+		</div>
+	</section>
+
+	<section class="section" id="faq" aria-labelledby="faq-heading">
+		<div class="container">
+			<h2 class="section-heading" id="faq-heading">Questions before you buy</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="final-band" id="bonuses" aria-labelledby="final-heading">
+		<div class="container">
+			<h2 class="section-heading" id="final-heading">The Final Verdict</h2>
+			<p class="subhead">
+				ReferralNow Premium is the most cost-effective way I have seen to systemize word-of-mouth.
+				You stop guessing which customer sent a friend, you pay a reward only after a real sale, and
+				you are not renting the channel from an ad platform every month. If your customers already
+				talk about you, this is the system that puts that talk on the books.
+			</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + Claim Your Bonuses →" />
+			<p>
+				<a class="text-link" href="/referralnow-bonus">Learn more about my exclusive bonuses →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow" hidden>
+		<p>$49 once · 14-day money-back window</p>
+		<Cta class="btn" label="Get ReferralNow Premium + My Bonuses →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			const observer = new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			});
+			observer.observe(trigger);
+		}
+	</script>
+</BaseLayout>

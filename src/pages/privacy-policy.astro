@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Privacy Policy';
+const description =
+	'Privacy policy for ReferralNowReview.com. How this review site handles cookies, analytics, and the contact email contact@referralnowreview.com.';
+const canonicalURL = new URL('/privacy-policy', Astro.site).href;
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} hideCta>
+	<article class="legal-page">
+		<h1>Privacy Policy</h1>
+		<p class="updated">Last updated October 23, 2026</p>
+		<p>
+			This policy describes how ReferralNowReview.com handles information when you visit this website.
+			We do not run customer accounts, and we do not sell the software.
+		</p>
+		<h2>Who to contact</h2>
+		<p>
+			Email <a href="mailto:contact@referralnowreview.com">contact@referralnowreview.com</a> with privacy questions.
+		</p>
+		<h2>Information this site collects</h2>
+		<ul>
+			<li>Messages you send to the contact address above, including your email and whatever you write.</li>
+			<li>Basic technical data that a host normally logs, such as browser type, pages requested, and IP address.</li>
+			<li>Nothing you type into a ReferralNow account. That product is run by the vendor, on the vendor’s site.</li>
+		</ul>
+		<h2>Cookies</h2>
+		<p>
+			This site itself does not require a login cookie. The host may set a cookie needed to deliver the
+			page. If you click an affiliate link, JVZoo or the vendor may set their own cookies on their
+			websites. Those cookies are covered by their policies, not this one.
+		</p>
+		<h2>Analytics</h2>
+		<p>
+			We may use a privacy-respecting analytics tool to see which pages are visited, in aggregate. That
+			measurement is used to improve the site. It is not used to sell a profile of you. If an analytics
+			tool sets a cookie, you can block cookies in your browser.
+		</p>
+		<h2>How we use information</h2>
+		<ul>
+			<li>To reply if you email us.</li>
+			<li>To keep the site online and understand which guides are useful.</li>
+			<li>To meet a legal request if one is valid.</li>
+		</ul>
+		<p>We do not sell personal information.</p>
+		<h2>How long we keep it</h2>
+		<p>
+			Emails are kept long enough to handle the request, then deleted when we no longer need them.
+			Host logs follow the host’s retention period.
+		</p>
+		<h2>Children</h2>
+		<p>This site is written for business owners. We do not knowingly collect information from children.</p>
+		<h2>Changes</h2>
+		<p>If this policy changes, the date at the top of the page will change with it.</p>
+		<p>
+			Related: <a href="/affiliate-disclosure">Affiliate disclosure</a> · <a href="/terms">Terms of service</a>
+		</p>
+	</article>
+</BaseLayout>

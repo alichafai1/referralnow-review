@@ -1,0 +1,14 @@
+---
+import { affiliateUrl } from '../data/offer';
+
+interface Props {
+	label: string;
+	class?: string;
+}
+
+const { label, class: className = 'btn' } = Astro.props;
+---
+
+<a class={className} href={affiliateUrl} target="_blank" rel="noopener noreferrer sponsored">
+	{label}
+</a>

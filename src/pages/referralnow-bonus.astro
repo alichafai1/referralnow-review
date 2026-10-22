@@ -1,0 +1,272 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'ReferralNow Premium Bonus: Claim Your Referral Launch Kit';
+const description =
+	'Get exclusive ReferralNow Premium bonuses when you buy through this link. Includes a Referral Program Launch Checklist and 10 Email/SMS Templates.';
+const canonicalURL = new URL('/referralnow-bonus', Astro.site).href;
+const bonusEmail = 'bonuses@referralnowreview.com';
+
+const faqs = [
+	{
+		q: 'Are these bonuses free?',
+		a: 'Yes. The Referral Program Launch Checklist and the 10 email and SMS templates are free when you buy ReferralNow Premium through a button on this page. You do not pay an extra fee for the files. The $47 and $67 amounts are what the guides are worth, not a second charge.',
+	},
+	{
+		q: 'How will I receive the files?',
+		a: `Forward your JVZoo receipt to ${bonusEmail}. Bonus links are sent to that same inbox within 24 hours.`,
+	},
+	{
+		q: 'What if I already bought ReferralNow Premium?',
+		a: 'If the purchase was made through a link on this site, forward the receipt and the files still go out. These bonuses are reserved for purchases made through this page, so a receipt from a different link does not qualify.',
+	},
+	{
+		q: 'Do I need the Premium version to get these?',
+		a: 'Yes. The checklist and templates are for ReferralNow Premium buyers. They show you what to say and how to launch the program that software tracks. They are not sold on their own.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Bonuses', href: '/referralnow-bonus' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Product',
+			name: 'ReferralNow Premium Referral Launch Kit',
+			description,
+			brand: {
+				'@type': 'Brand',
+				name: 'ReferralNow Review',
+			},
+			offers: {
+				'@type': 'Offer',
+				price: '0',
+				priceCurrency: 'USD',
+				availability: 'https://schema.org/InStock',
+				url: canonicalURL,
+			},
+		},
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: item.a,
+				},
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{
+					'@type': 'ListItem',
+					position: 1,
+					name: 'Home',
+					item: new URL('/', Astro.site).href,
+				},
+				{
+					'@type': 'ListItem',
+					position: 2,
+					name: 'Bonuses',
+					item: canonicalURL,
+				},
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">Free with ReferralNow Premium</p>
+			<h1>Claim Your Exclusive ReferralNow Premium Bonuses</h1>
+			<p class="subhead">
+				Buy ReferralNow Premium through the link on this page, and I’ll send you these private bonuses
+				to help you launch your referral program in days, not weeks.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium + Claim Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="problem-heading">
+		<div class="container narrow">
+			<h2 class="section-heading" id="problem-heading">The Software is Step One. The System is Step Two.</h2>
+			<p class="lede">
+				You have the software, but you don't have a system. If you don't know what to say to your
+				customers, the tool will sit there unused. ReferralNow gives you the engine to track referrals.
+				But what do you say to your customers to get them to share? How do you ask for a referral
+				without sounding desperate?
+			</p>
+			<ul class="pain-list">
+				<li>
+					<span class="mark mark-no" aria-hidden="true">
+						<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+							<path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+						</svg>
+					</span>
+					<span>You don't know how to ask customers for referrals.</span>
+				</li>
+				<li>
+					<span class="mark mark-no" aria-hidden="true">
+						<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+							<path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+						</svg>
+					</span>
+					<span>You don't have the right emails or SMS messages.</span>
+				</li>
+				<li>
+					<span class="mark mark-no" aria-hidden="true">
+						<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+							<path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+						</svg>
+					</span>
+					<span>You're not sure how to launch the program without annoying people.</span>
+				</li>
+			</ul>
+			<p class="problem-close">These bonuses fix the human side of referrals.</p>
+			<Cta class="btn section-cta" label="Get ReferralNow Premium + Claim Bonuses →" />
+		</div>
+	</section>
+
+	<section class="section section-alt" id="bonuses" aria-labelledby="stack-heading">
+		<div class="container">
+			<h2 class="section-heading" id="stack-heading">Here is Exactly What You Get</h2>
+			<p class="lede">
+				Two private files. No upsell, no extra checkout. They are sent after you buy ReferralNow Premium
+				through this page.
+			</p>
+			<div class="bonus-grid">
+				<article class="bonus-card">
+					<div class="bonus-card-top">
+						<div class="feature-icon" aria-hidden="true">
+							<svg viewBox="0 0 24 24" fill="none">
+								<rect x="4" y="3.5" width="11" height="16" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
+								<path d="M7 3.5h5v2.6H7V3.5Z" stroke="currentColor" stroke-width="1.8"></path>
+								<path d="M6.8 10.2l1.5 1.5 2.8-3M6.8 14.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+								<path d="M16.2 8.2c1.8-.2 3.2.8 3.6 2.4-.9.5-1.8.6-2.6.4M17.4 7.2l.6-1.4.6 1.4M16.2 12.8l1.2 1.6 1.2-1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg>
+						</div>
+						<span class="worth">Worth $47</span>
+					</div>
+					<p class="step-kicker">Bonus 1</p>
+					<h3>The Referral Program Launch Checklist</h3>
+					<p>
+						A step-by-step PDF guide to launching your referral program. Covers setting reward amounts,
+						choosing the right offer, and promoting it to your list.
+					</p>
+				</article>
+				<article class="bonus-card">
+					<div class="bonus-card-top">
+						<div class="feature-icon" aria-hidden="true">
+							<svg viewBox="0 0 24 24" fill="none">
+								<path d="M4.5 7.5h10.2a2 2 0 0 1 2 2v6.2l2.8 2.1v-8.3a2 2 0 0 0-2-2H6.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+								<rect x="3.5" y="5" width="12.5" height="10" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
+								<path d="M6.2 8.2h7M6.2 11h4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+							</svg>
+						</div>
+						<span class="worth">Worth $67</span>
+					</div>
+					<p class="step-kicker">Bonus 2</p>
+					<h3>10 Plug-and-Play Referral Email & SMS Templates</h3>
+					<p>
+						Proven templates for asking customers to refer, reminding them, and thanking them. Just
+						copy, paste, and personalize.
+					</p>
+				</article>
+			</div>
+			<div class="value-box">
+				<p>Total Bonus Value</p>
+				<p class="price-amount">$114</p>
+				<p class="value-free">Yours Free.</p>
+				<Cta class="btn btn-lg" label="Get ReferralNow Premium + Claim Bonuses →" />
+			</div>
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="claim-heading">
+		<div class="container">
+			<h2 class="section-heading" id="claim-heading">How to Claim Your Bonuses (Takes 2 Minutes)</h2>
+			<ol class="claim-grid">
+				<li class="claim-step">
+					<span class="claim-num">1</span>
+					<h3>Buy through this page</h3>
+					<p>Click the button on this page to buy ReferralNow Premium.</p>
+				</li>
+				<li class="claim-step">
+					<span class="claim-num">2</span>
+					<h3>Forward your receipt</h3>
+					<p>
+						Forward your JVZoo receipt to
+						<a class="email-chip" href={`mailto:${bonusEmail}`}>{bonusEmail}</a>
+					</p>
+				</li>
+				<li class="claim-step">
+					<span class="claim-num">3</span>
+					<h3>Open the email</h3>
+					<p>Check your inbox within 24 hours for your bonus links.</p>
+				</li>
+			</ol>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium + Claim Bonuses →" />
+		</div>
+	</section>
+
+	<section class="section section-alt" id="faq" aria-labelledby="faq-heading">
+		<div class="container">
+			<h2 class="section-heading" id="faq-heading">Bonus FAQs</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">Launch the program, not just the software</h2>
+			<p class="subhead">
+				ReferralNow tracks the sale. These files tell you what to say, who to ask, and how to roll it
+				out without annoying the customers who already like you.
+			</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + Claim Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Claim bonuses" hidden>
+		<p>Launch kit included · $114 value, free</p>
+		<Cta class="btn" label="Get ReferralNow Premium + Claim Bonuses →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			const observer = new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			});
+			observer.observe(trigger);
+		}
+	</script>
+</BaseLayout>

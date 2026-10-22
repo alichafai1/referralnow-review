@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'How to Use ReferralNow Premium: Step-by-Step Tutorial';
+const description =
+	'How to use ReferralNow Premium: sign in to the web app, set a reward, share a link, approve referrals, and release the payout. $49 once.';
+const canonicalURL = new URL('/referralnow-tutorial', Astro.site).href;
+
+const steps = [
+	{
+		name: 'Open the web app',
+		text: 'There is no app store download for you or your customers. After you buy, the login arrives by email. Sign in on the web. That is the install step.',
+	},
+	{
+		name: 'Set your reward',
+		text: 'Pick a discount, store credit, points, a free service, or a custom reward. Say what the friend gets, if anything. Set a budget ceiling so the campaign stops when the reward spend hits your limit.',
+	},
+	{
+		name: 'Share your link',
+		text: 'Each advocate gets a personal link and code. Share it by email, text, a QR code, or a card at the counter. Customers do not create a password.',
+	},
+	{
+		name: 'Approve referrals',
+		text: 'When a friend buys, the sale is confirmed at the till, by the store, by the code, or on the thank-you page. Read the fraud score. Approve the clean claims. Reject a self-referral.',
+	},
+	{
+		name: 'Release the reward',
+		text: 'Rewards wait through your refund window, then sit on one balance with one code the advocate can spend with you. You still pay that reward. Cash and gift cards are a Pro upgrade.',
+	},
+];
+
+const faqs = [
+	{
+		q: 'Do my customers install anything?',
+		a: 'No. They open a link. The advocate page and the friend’s offer page run in the browser.',
+	},
+	{
+		q: 'Where do I confirm a Shopify order?',
+		a: 'A connected Shopify or WooCommerce store can confirm the paid order for you. You can still use a thank-you tag if the checkout is somewhere else.',
+	},
+	{
+		q: 'Can I edit the reward after launch?',
+		a: 'Wording and budget can be changed on a live campaign. Changing the deal itself asks you to confirm first, so people already sharing are not surprised.',
+	},
+	{
+		q: 'How long does setup take?',
+		a: 'A first campaign can be drafted from a trade pack or one sentence, then edited before you press launch. Inviting customers is the part that takes the real time.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Tutorial', href: '/referralnow-tutorial' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'HowTo',
+			name: title,
+			description,
+			step: steps.map((step, index) => ({
+				'@type': 'HowToStep',
+				position: index + 1,
+				name: step.name,
+				text: step.text,
+			})),
+		},
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: { '@type': 'Answer', text: item.a },
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+				{ '@type': 'ListItem', position: 2, name: 'Tutorial', item: canonicalURL },
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">Tutorial · Web app, not a download</p>
+			<h1>How to Use ReferralNow Premium</h1>
+			<p class="subhead">
+				Five moves: sign in, set the reward, share the link, approve the referral, release the payout.
+				Customers never install an app.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<h2 class="section-heading">The steps</h2>
+			<ol class="rank-list">
+				{
+					steps.map((step, index) => (
+						<li class="rank-card">
+							<span class="rank-num">{index + 1}</span>
+							<div>
+								<h3>{step.name}</h3>
+								<p>{step.text}</p>
+							</div>
+						</li>
+					))
+				}
+			</ol>
+			<Cta class="btn btn-lg section-cta" label="Get the account for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container narrow">
+			<article class="answer-box">
+				<h2 class="section-heading">Before you press launch</h2>
+				<ul class="check-list">
+					<li>
+						<span class="mark mark-yes" aria-hidden="true">✓</span>
+						<span>The reward is smaller than the profit on the sale.</span>
+					</li>
+					<li>
+						<span class="mark mark-yes" aria-hidden="true">✓</span>
+						<span>You know where the first ten customers will see the link.</span>
+					</li>
+					<li>
+						<span class="mark mark-yes" aria-hidden="true">✓</span>
+						<span>A refunded order will not pay the advocate.</span>
+					</li>
+				</ul>
+			</article>
+			<Cta class="btn section-cta" label="Lock in ReferralNow for $49 →" />
+		</div>
+	</section>
+
+	<section class="section" id="faq">
+		<div class="container">
+			<h2 class="section-heading">Tutorial questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">The login is the start, not the program</h2>
+			<p class="subhead">You still have to tell customers the link exists. The app only records what happens next.</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read the <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>Web app · $49 once · No customer download</p>
+		<Cta class="btn" label="Get ReferralNow Premium for $49 →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			}).observe(trigger);
+		}
+	</script>
+</BaseLayout>

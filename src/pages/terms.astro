@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Terms of Service';
+const description =
+	'Terms of service for ReferralNowReview.com. This site is for information only. The software is provided by the vendor, not by this website.';
+const canonicalURL = new URL('/terms', Astro.site).href;
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} hideCta>
+	<article class="legal-page">
+		<h1>Terms of Service</h1>
+		<p class="updated">Last updated October 23, 2026</p>
+		<p>
+			These terms cover your use of ReferralNowReview.com. By using the site, you agree to them. If you
+			do not agree, do not use the site.
+		</p>
+		<h2>What this site is</h2>
+		<p>
+			This website publishes reviews, comparisons, and guides. It is for informational purposes only.
+			It is not the checkout, and it is not the software.
+		</p>
+		<h2>The software belongs to the vendor</h2>
+		<p>
+			ReferralNow Premium is provided by its vendor. When you buy, you buy from the vendor through their
+			checkout, which may be processed on JVZoo. Their terms, refund rules, and product limits apply to
+			the software. Ours do not replace theirs.
+		</p>
+		<p>
+			We do not host the app, store your customer list, or pay referral rewards. A 14-day refund, if
+			you request one, is handled by the seller under the seller’s refund policy.
+		</p>
+		<h2>No professional advice</h2>
+		<p>
+			Nothing on this site is legal, financial, or earnings advice. Examples of ad cost, commissions,
+			and competitor prices are illustrations. They can be wrong by the time you read them. You are
+			responsible for your own buying decision.
+		</p>
+		<h2>Affiliate links</h2>
+		<p>
+			Some links earn us a commission if you buy. That is explained on the
+			<a href="/affiliate-disclosure">affiliate disclosure</a>. Using a link is optional.
+		</p>
+		<h2>Acceptable use</h2>
+		<ul>
+			<li>Do not attempt to break, scrape in a way that harms, or misrepresent the site.</li>
+			<li>Do not copy the pages and present them as your own review.</li>
+		</ul>
+		<h2>Disclaimer of warranties</h2>
+		<p>
+			The site is provided as is. We do not warrant that every price, feature, or competitor detail is
+			complete or current. The vendor can change the product without notice to us.
+		</p>
+		<h2>Limitation of liability</h2>
+		<p>
+			To the fullest extent the law allows, we are not liable for lost profits, lost customers, or
+			damages that result from using the site, relying on a page, or buying the software. If a law
+			does not allow that limit, our liability is limited to the minimum the law requires.
+		</p>
+		<h2>Changes</h2>
+		<p>We may update these terms. The date at the top will change when we do. Continued use means you accept the update.</p>
+		<p>
+			Questions: <a href="mailto:contact@referralnowreview.com">contact@referralnowreview.com</a>
+		</p>
+		<p>
+			Related: <a href="/affiliate-disclosure">Affiliate disclosure</a> · <a href="/privacy-policy">Privacy policy</a>
+		</p>
+	</article>
+</BaseLayout>

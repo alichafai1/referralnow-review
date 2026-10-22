@@ -1,0 +1,215 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'Top 5 Referral Program Tools for Small Businesses (2026)';
+const description =
+	'The top referral program tools for small businesses in 2026. ReferralNow Premium is first because it is $49 once, tracks real sales, and checks claims before you pay a reward.';
+const canonicalURL = new URL('/best-referral-program-tools', Astro.site).href;
+const home = new URL('/', Astro.site).href;
+
+const tools = [
+	{
+		name: 'ReferralNow Premium',
+		url: home,
+		kicker: 'Best overall for a small business',
+		text: 'A customer gets a link. A friend claims an offer. The sale is confirmed, the claim is scored for fraud, and the reward releases. The software is $49 once. A small business cannot treat $100 or $250 a month as the cost of asking customers to share.',
+	},
+	{
+		name: 'InviteBox',
+		kicker: 'Lowest monthly entry, still a subscription',
+		text: 'InviteBox runs basic invite and reward widgets. Published start prices sit around $29 a month, with caps on cheaper plans. It is easier to afford than an enterprise suite, and it is still a bill that renews.',
+	},
+	{
+		name: 'ReferralCandy',
+		url: new URL('/referralnow-vs-referralcandy', Astro.site).href,
+		kicker: 'Known Shopify app, plus fees',
+		text: 'ReferralCandy starts at $39 a month and adds a success fee on new referral sales. Fine for a store that wants that brand. Expensive next to a one-time tool if referrals are a side channel.',
+	},
+	{
+		name: 'Yotpo',
+		url: new URL('/referralnow-vs-yotpo', Astro.site).href,
+		kicker: 'Suite pricing, not a small-tool price',
+		text: 'Yotpo’s free loyalty plan is limited. Pro referrals start at $199 a month because you are buying part of a reviews and loyalty suite. That is a lot of software if you only needed a referral link.',
+	},
+	{
+		name: 'Referral Rock',
+		url: new URL('/referralnow-vs-referral-rock', Astro.site).href,
+		kicker: 'Too much tool for most small teams',
+		text: 'Referral Rock starts at $250 a month and is built for teams and larger programs. Useful later. A poor first purchase when you are still asking regulars to send a friend.',
+	},
+];
+
+const faqs = [
+	{
+		q: 'What referral tool can a small business actually afford?',
+		a: 'ReferralNow Premium, at $49 once. Monthly tools in this list start around $29 and climb to $250, and several also take a cut of sales or charge per order. The one-time software fee is the one a small margin can absorb.',
+	},
+	{
+		q: 'How does ReferralNow track word-of-mouth referrals?',
+		a: 'Each customer gets a personal link and code. Friends claim an offer. A sale is confirmed at the counter, by the store, or on a thank-you page. The claim is scored before a reward is released, so you are not paying for a fake referral.',
+	},
+	{
+		q: 'Is $49 the only cost?',
+		a: 'It is the software price. You still fund the rewards, such as a discount or store credit, and SMS messages are billed by Twilio. There is no monthly software subscription on the $49 plan.',
+	},
+	{
+		q: 'Do I need a big list to start?',
+		a: 'You need some customers. A referral program with zero buyers has nobody to ask. You do not need an enterprise list. A counter QR code or a short email to recent buyers is enough to begin.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Best tools for small business', href: '/best-referral-program-tools' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'ItemList',
+			name: title,
+			itemListOrder: 'https://schema.org/ItemListOrderAscending',
+			numberOfItems: tools.length,
+			itemListElement: tools.map((tool, index) => ({
+				'@type': 'ListItem',
+				position: index + 1,
+				name: tool.name,
+				...(tool.url ? { url: tool.url } : {}),
+			})),
+		},
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: { '@type': 'Answer', text: item.a },
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: home },
+				{ '@type': 'ListItem', position: 2, name: 'Best tools for small business', item: canonicalURL },
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">Small business · Affordability first</p>
+			<h1>Top 5 Referral Program Tools for Small Businesses (2026)</h1>
+			<p class="subhead">
+				A small business cannot carry a $100 or $250 referral subscription. This list ranks tools by
+				what they cost to keep running, and by whether a sale is checked before you pay a reward.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="rank-heading">
+		<div class="container">
+			<h2 class="section-heading" id="rank-heading">The five tools</h2>
+			<ol class="rank-list">
+				<li class="rank-card is-top">
+					<span class="rank-num">1</span>
+					<div>
+						<p class="rank-kicker">{tools[0].kicker}</p>
+						<h3>{tools[0].name}</h3>
+						<p>{tools[0].text}</p>
+						<Cta class="btn section-cta" label="Get ReferralNow Premium for $49 →" />
+					</div>
+				</li>
+				{
+					tools.slice(1).map((tool, index) => (
+						<li class="rank-card">
+							<span class="rank-num">{index + 2}</span>
+							<div>
+								<p class="rank-kicker">{tool.kicker}</p>
+								<h3>{tool.name}</h3>
+								<p>{tool.text}</p>
+							</div>
+						</li>
+					))
+				}
+			</ol>
+			<Cta class="btn btn-lg section-cta" label="Get the affordable pick for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt" aria-labelledby="how-heading">
+		<div class="container narrow">
+			<h2 class="section-heading" id="how-heading">What the $49 tool actually does</h2>
+			<p class="lede">
+				ReferralNow turns word of mouth into a record. The customer shares one link. The friend gets
+				an offer. You only reward the advocate after the sale is confirmed, and each claim gets a
+				fraud score so a self-referral does not get paid. That is the whole loop, without a monthly
+				software subscription.
+			</p>
+			<p class="lede">
+				Ease of use is the other half. There is no app for your customer to download. A QR code at
+				the counter or a link in an email is enough to start, as long as you already have people to
+				ask.
+			</p>
+			<Cta class="btn section-cta" label="I'm Ready to Grow My Referrals →" />
+		</div>
+	</section>
+
+	<section class="section" id="faq" aria-labelledby="faq-heading">
+		<div class="container">
+			<h2 class="section-heading" id="faq-heading">Small-business questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">Stop renting a referral app</h2>
+			<p class="subhead">
+				If the monthly tools are more than the channel is worth, ReferralNow Premium is the small
+				business option: tracked referrals, fraud checks, $49 once.
+			</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read the <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>#1 for small businesses · $49 once</p>
+		<Cta class="btn" label="Get ReferralNow Premium for $49 →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			}).observe(trigger);
+		}
+	</script>
+</BaseLayout>

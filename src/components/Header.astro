@@ -1,0 +1,31 @@
+---
+import Logo from './Logo.astro';
+import Cta from './Cta.astro';
+
+interface Props {
+	hideCta?: boolean;
+}
+
+const { hideCta = false } = Astro.props;
+
+const links = [
+	{ href: '/#review', label: 'Review' },
+	{ href: '/referralnow-pricing', label: 'Pricing' },
+	{ href: '/best-referral-marketing-software', label: 'Alternatives' },
+	{ href: '/referralnow-bonus', label: 'Bonuses' },
+];
+---
+
+<header class="site-header">
+	<div class="container header-inner">
+		<Logo />
+		<nav class="site-nav" aria-label="Primary">
+			{
+				links.map((link) => (
+					<a href={link.href}>{link.label}</a>
+				))
+			}
+		</nav>
+		{!hideCta && <Cta class="btn header-cta" label="Get ReferralNow →" />}
+	</div>
+</header>

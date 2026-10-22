@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'ReferralNow for Affiliate Marketers: Build Your Own Army';
+const description =
+	'ReferralNow for affiliate marketers. Turn buyers into a tracked referral loop instead of paying half the sale to a large affiliate. $49 once, with fraud checks.';
+const canonicalURL = new URL('/referralnow-for-affiliate-marketers', Astro.site).href;
+
+const checks = [
+	'Own the list that sends the next buyer',
+	'Cheaper than a large network commission',
+	'Fraud-protected tracking',
+];
+
+const faqs = [
+	{
+		q: 'Is this a replacement for JVZoo or ClickBank?',
+		a: 'No. Those networks recruit outside affiliates. ReferralNow is for the buyers you already have. They share a link to your offer, you confirm the sale, and you pay a reward you set.',
+	},
+	{
+		q: 'Why is a customer reward cheaper than a pro affiliate?',
+		a: 'A launch network often pays a large commission, sometimes around half the sale, to a stranger with a list. A customer reward is a discount or credit you choose, and it is paid only after a confirmed sale.',
+	},
+	{
+		q: 'How is the sale tracked on a funnel?',
+		a: 'Point the advocate link at your sales page. Add the thank-you tag on the order confirmation page. The referred sale is credited to that advocate and checked before the reward moves.',
+	},
+	{
+		q: 'Can people refer themselves and collect the reward?',
+		a: 'They can try. Every claim gets a fraud score. Self-referrals, fast bursts, and shared devices can be rejected, and rewards wait through your refund window.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'For affiliates', href: '/referralnow-for-affiliate-marketers' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: { '@type': 'Answer', text: item.a },
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+				{ '@type': 'ListItem', position: 2, name: 'For affiliates', item: canonicalURL },
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">Your buyers, not someone else’s list</p>
+			<h1>ReferralNow for Affiliate Marketers: Build Your Own Referral Army</h1>
+			<p class="subhead">
+				JVZoo and ClickBank launches are crowded. The same big affiliates see every offer. The people
+				who already bought from you are a list those networks do not own.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container narrow">
+			<h2 class="section-heading">The commissions go to people who do not know your buyers</h2>
+			<ul class="pain-list">
+				<li>
+					<span class="mark mark-no" aria-hidden="true">✕</span>
+					<span>A launch network is a bidding war for the same affiliates.</span>
+				</li>
+				<li>
+					<span class="mark mark-no" aria-hidden="true">✕</span>
+					<span>A 50% commission to a pro affiliate can erase the profit on the first sale.</span>
+				</li>
+				<li>
+					<span class="mark mark-no" aria-hidden="true">✕</span>
+					<span>Your actual customers already trust the offer, and nobody gives them a tracked link.</span>
+				</li>
+			</ul>
+			<Cta class="btn section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container">
+			<h2 class="section-heading">Turn buyers into a small, tracked loop</h2>
+			<div class="package-grid">
+				<article class="card">
+					<p class="rank-kicker">Who shares</p>
+					<h3>The customer, not a stranger</h3>
+					<p>Each buyer gets a personal link to your sales page. They are not joining an affiliate network.</p>
+				</article>
+				<article class="card">
+					<p class="rank-kicker">What you track</p>
+					<h3>The sale on the thank-you page</h3>
+					<p>The confirmation page credits the right advocate. A claim is scored before the reward moves.</p>
+				</article>
+				<article class="card">
+					<p class="rank-kicker">What you pay</p>
+					<h3>A reward you set</h3>
+					<p>A discount or credit you control, paid after a real sale. Not half the order to a top affiliate.</p>
+				</article>
+				<article class="card">
+					<p class="rank-kicker">The software</p>
+					<h3>$49 once</h3>
+					<p>No monthly software fee on this plan. You still have to ask buyers to share the link.</p>
+				</article>
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Build the loop for $49 →" />
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container narrow">
+			<h2 class="section-heading">Why this beats renting affiliates</h2>
+			<ul class="check-list">
+				{
+					checks.map((item) => (
+						<li>
+							<span class="mark mark-yes" aria-hidden="true">✓</span>
+							<span>{item}</span>
+						</li>
+					))
+				}
+			</ul>
+			<Cta class="btn section-cta" label="Lock in ReferralNow for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt" id="faq">
+		<div class="container">
+			<h2 class="section-heading">Affiliate questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">Keep the next sale inside your own list</h2>
+			<p class="subhead">
+				ReferralNow does not replace a launch network. It gives the people who already paid you a tracked way to send the next buyer.
+			</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read the <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>Your buyers as the referral loop · $49 once</p>
+		<Cta class="btn" label="Get ReferralNow Premium for $49 →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			}).observe(trigger);
+		}
+	</script>
+</BaseLayout>

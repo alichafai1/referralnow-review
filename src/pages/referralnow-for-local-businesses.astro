@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'ReferralNow for Local Businesses: Track Offline Word-of-Mouth';
+const description =
+	'ReferralNow for salons, restaurants, and local shops. Track the friend who walked in because a customer recommended you, then reward that customer. $49 once.';
+const canonicalURL = new URL('/referralnow-for-local-businesses', Astro.site).href;
+
+const checks = [
+	'Easy for non-tech owners',
+	'Track a walk-in that started with a recommendation',
+	'Build loyalty with a reward you control',
+];
+
+const faqs = [
+	{
+		q: 'Do I need a website?',
+		a: 'No. A counter QR code and a four-digit till PIN are enough. Staff find the code, enter the order value, and confirm in three taps.',
+	},
+	{
+		q: 'How do I put this in front of customers?',
+		a: 'Print the advocate’s own link on a card or put a QR code on the receipt and the counter. The friend claims an offer on their phone. No app and no password.',
+	},
+	{
+		q: 'Can I reward someone with a gift card?',
+		a: 'On the $49 plan you can reward with a discount, store credit, points, or a free service. Cash and gift cards are a Pro upgrade. Either way, you pay the reward, not a monthly software fee.',
+	},
+	{
+		q: 'What if I also take bookings online?',
+		a: 'The same link can finish on your website or booking page. A thank-you tag on the confirmation page credits the advocate when the sale is real.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'For local businesses', href: '/referralnow-for-local-businesses' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: { '@type': 'Answer', text: item.a },
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+				{ '@type': 'ListItem', position: 2, name: 'For local businesses', item: canonicalURL },
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">Salons, restaurants, and local shops</p>
+			<h1>ReferralNow for Local Businesses: Finally Track Word-of-Mouth</h1>
+			<p class="subhead">
+				A lot of local customers show up because someone said your name. That recommendation is almost
+				never written down, so the person who sent them never gets thanked.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container narrow">
+			<h2 class="section-heading">The friend walks in. You never know who sent them.</h2>
+			<ul class="pain-list">
+				<li>
+					<span class="mark mark-no" aria-hidden="true">✕</span>
+					<span>A regular tells a friend about the salon, the restaurant, or the shop.</span>
+				</li>
+				<li>
+					<span class="mark mark-no" aria-hidden="true">✕</span>
+					<span>The friend shows up and pays. Nobody can point to the person who made the introduction.</span>
+				</li>
+				<li>
+					<span class="mark mark-no" aria-hidden="true">✕</span>
+					<span>You cannot reward the original customer, so they stop mentioning you.</span>
+				</li>
+			</ul>
+			<Cta class="btn section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container">
+			<h2 class="section-heading">Put the link where the conversation already happens</h2>
+			<div class="package-grid">
+				<article class="card">
+					<p class="rank-kicker">On paper</p>
+					<h3>Receipt, card, or QR code</h3>
+					<p>Each advocate can have a card with their own link. A counter QR code lets people join while they pay.</p>
+				</article>
+				<article class="card">
+					<p class="rank-kicker">At the till</p>
+					<h3>Three taps to confirm</h3>
+					<p>Staff use a four-digit PIN. They find the code, enter the amount, and confirm. No staff passwords.</p>
+				</article>
+				<article class="card">
+					<p class="rank-kicker">The reward</p>
+					<h3>A discount they can spend with you</h3>
+					<p>Store credit, a discount, points, or a free service on the $49 plan. Gift cards are a Pro upgrade.</p>
+				</article>
+				<article class="card">
+					<p class="rank-kicker">The price</p>
+					<h3>$49 once</h3>
+					<p>No monthly software fee. You still choose the reward and you still pay it.</p>
+				</article>
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Start tracking walk-ins for $49 →" />
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container narrow">
+			<h2 class="section-heading">Built for owners, not developers</h2>
+			<ul class="check-list">
+				{
+					checks.map((item) => (
+						<li>
+							<span class="mark mark-yes" aria-hidden="true">✓</span>
+							<span>{item}</span>
+						</li>
+					))
+				}
+			</ul>
+			<Cta class="btn section-cta" label="Lock in ReferralNow for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt" id="faq">
+		<div class="container">
+			<h2 class="section-heading">Local business questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">Thank the customer who sent the next one</h2>
+			<p class="subhead">
+				The recommendation already happens. ReferralNow writes down who sent whom, then lets you reward it.
+			</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read the <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>Track local referrals · $49 once</p>
+		<Cta class="btn" label="Get ReferralNow Premium for $49 →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			}).observe(trigger);
+		}
+	</script>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+interface Props {
+	href?: string;
+}
+
+const { href = '/' } = Astro.props;
+---
+
+<a class="logo" href={href}>
+	<svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+		<rect width="36" height="36" rx="10" fill="#2563EB"></rect>
+		<path d="M14.2 18H21.8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"></path>
+		<circle cx="10.5" cy="18" r="3.8" fill="#FFFFFF"></circle>
+		<circle cx="25.5" cy="18" r="3.8" fill="#10B981"></circle>
+	</svg>
+	<span class="logo-wordmark">ReferralNow Review</span>
+</a>

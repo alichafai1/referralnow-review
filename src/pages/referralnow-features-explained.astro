@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'ReferralNow Premium Features Explained: Is It Worth It?';
+const description =
+	'ReferralNow Premium features, explained: sale verification, Shopify and WooCommerce, rewards you control, and the tracking dashboard. The software is $49 once.';
+const canonicalURL = new URL('/referralnow-features-explained', Astro.site).href;
+
+const features = [
+	{
+		name: 'Real sale verification',
+		text: 'A reward does not move because someone says they referred a friend. The sale is confirmed at the till, by a unique code, by the store’s paid order, or by the thank-you page. Each claim then gets a 0–100 fraud score. Self-referrals and odd bursts can be rejected, and rewards wait through your refund window.',
+		cta: 'Get sale checks for $49 →',
+	},
+	{
+		name: 'Shopify and WooCommerce',
+		text: 'Both connect directly, along with BigCommerce, Wix, and Squarespace. A friend can receive a single-use discount, and a paid order can confirm with the real order value. Other carts use the thank-you tag. A physical counter works with no website at all.',
+		cta: 'Connect a store for $49 →',
+	},
+	{
+		name: 'Rewards you set',
+		text: 'On the $49 plan the reward can be a discount, store credit, points, a free service, or something custom. It can stay flat or climb as someone refers more people. You set a budget ceiling so the campaign stops paying when it hits your limit. Cash and gift cards are a Pro upgrade. You pay the reward either way.',
+		cta: 'Set your own rewards for $49 →',
+	},
+	{
+		name: 'Tracking dashboard',
+		text: 'The dashboard shows new referred customers, referred revenue, and cost per new customer next to what your ads cost. You can see which advocates and campaigns produced the sales. It does not replace your judgment. It removes the spreadsheet that was guessing.',
+		cta: 'See the dashboard path for $49 →',
+	},
+];
+
+const faqs = [
+	{
+		q: 'Are these features on the $49 plan?',
+		a: 'Sale checks, store connections, the reward types above, and the dashboard are part of ReferralNow Premium. Cash and gift-card payouts are a Pro upgrade. Texts, if you send them, are billed by Twilio.',
+	},
+	{
+		q: 'Does verification stop every fake referral?',
+		a: 'No tool can promise that. ReferralNow scores the claim and lets you reject it before the reward moves. You still approve or block. The software does not pay people on its own.',
+	},
+	{
+		q: 'Is the dashboard a full analytics suite?',
+		a: 'It is a referral dashboard: customers, revenue, and cost next to ads, plus advocates and campaigns. It is not a replacement for your store analytics or ad accounts.',
+	},
+	{
+		q: 'Is it worth $49?',
+		a: 'If you already have customers and you want this loop without a monthly software fee, yes. One referred sale can cover the software. It is not worth it if you have nobody to ask.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Features explained', href: '/referralnow-features-explained' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: { '@type': 'Answer', text: item.a },
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+				{ '@type': 'ListItem', position: 2, name: 'Features explained', item: canonicalURL },
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">Four features · $49 once</p>
+			<h1>ReferralNow Premium Features Explained: Is It Worth It?</h1>
+			<p class="subhead">
+				Four parts matter: proving the sale, connecting the store, choosing the reward, and seeing
+				what it cost. Everything else is optional.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<ol class="rank-list">
+				{
+					features.map((feature, index) => (
+						<li class="rank-card">
+							<span class="rank-num">{index + 1}</span>
+							<div>
+								<h3>{feature.name}</h3>
+								<p>{feature.text}</p>
+								<Cta class="btn section-cta" label={feature.cta} />
+							</div>
+						</li>
+					))
+				}
+			</ol>
+		</div>
+	</section>
+
+	<section class="section section-alt" id="faq">
+		<div class="container">
+			<h2 class="section-heading">Feature questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">Worth it when you already have customers</h2>
+			<p class="subhead">
+				The features above are the $49 plan. You still pay rewards. You still have to tell people the link exists.
+			</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read the <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>Sale checks, stores, rewards, dashboard · $49 once</p>
+		<Cta class="btn" label="Get ReferralNow Premium for $49 →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			}).observe(trigger);
+		}
+	</script>
+</BaseLayout>

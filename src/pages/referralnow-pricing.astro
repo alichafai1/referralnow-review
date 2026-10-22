@@ -1,0 +1,354 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+import { affiliateUrl } from '../data/offer';
+
+const title = 'ReferralNow Premium Pricing: Is $49 Worth It? (Honest Breakdown)';
+const description =
+	'Complete ReferralNow Premium pricing breakdown. Learn what you get for the $49 one-time fee, how it compares to monthly referral apps, and if it is worth the investment.';
+const canonicalURL = new URL('/referralnow-pricing', Astro.site).href;
+
+const faqs = [
+	{
+		q: 'Is the $49 a one-time payment or a subscription?',
+		a: 'The $49 launch price is a one-time payment for ReferralNow Premium. There is no monthly software subscription on this plan. A login is emailed when you buy.',
+	},
+	{
+		q: 'Are there any hidden fees?',
+		a: 'There is no monthly software fee on the $49 plan. Two costs sit outside that price. If you text customers, messages go through your own Twilio number and Twilio bills those texts. The rewards you promise, such as store credit or a free service, come out of your margin. Cash and gift-card rewards are a Pro upgrade, not part of the $49 plan.',
+	},
+	{
+		q: 'Is there a money-back guarantee?',
+		a: 'Yes. The seller gives you 14 days from purchase. If ReferralNow is not doing what the sales page says, their support team will try to get it running first. You can request a refund within those 14 days, under their refund policy.',
+	},
+	{
+		q: 'Do I need to pay for the rewards my customers earn?',
+		a: 'Yes. The $49 buys the software, not the rewards. You choose the reward and you pay it, and you can cap a campaign so it stops when it hits your budget. That cost is usually lower than buying the same customer from ads, because you pay after a real sale instead of paying for clicks.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Pricing', href: '/referralnow-pricing' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Product',
+			name: 'ReferralNow Premium',
+			description,
+			brand: {
+				'@type': 'Brand',
+				name: 'ReferralNow',
+			},
+			review: {
+				'@type': 'Review',
+				author: {
+					'@type': 'Organization',
+					name: 'ReferralNow Review',
+				},
+				reviewRating: {
+					'@type': 'Rating',
+					ratingValue: '4.6',
+					bestRating: '5',
+				},
+				reviewBody:
+					'ReferralNow Premium is a one-time $49 referral system. It is worth it for a business that already has customers and wants to stop paying a monthly referral subscription.',
+			},
+			aggregateRating: {
+				'@type': 'AggregateRating',
+				ratingValue: '4.6',
+				bestRating: '5',
+				worstRating: '1',
+				ratingCount: '1',
+			},
+			offers: {
+				'@type': 'Offer',
+				price: '49.00',
+				priceCurrency: 'USD',
+				availability: 'https://schema.org/InStock',
+				url: affiliateUrl,
+			},
+		},
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: item.a,
+				},
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{
+					'@type': 'ListItem',
+					position: 1,
+					name: 'Home',
+					item: new URL('/', Astro.site).href,
+				},
+				{
+					'@type': 'ListItem',
+					position: 2,
+					name: 'Pricing',
+					item: canonicalURL,
+				},
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">One-time price · Not a subscription</p>
+			<h1>ReferralNow Premium Pricing: Is the $49 One-Time Fee Worth It?</h1>
+			<p class="subhead">
+				Most referral software charges $50 to $100 every month. ReferralNow Premium is a one-time $49
+				payment. Here is the honest math on why it pays for itself with just one new customer.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> after purchase →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="answer-heading">
+		<div class="container narrow">
+			<article class="answer-box">
+				<h2 class="section-heading" id="answer-heading">The 30-Second Breakdown</h2>
+				<p class="lede">
+					ReferralNow is a one-time payment. There is no monthly software fee on the $49 plan, and you
+					get 14 days to test it and request a refund if it is not doing what the sales page says. You
+					are not billed per referral. Rewards you promise still come from your margin, and texts, if
+					you send them, are billed by Twilio.
+				</p>
+				<Cta class="btn section-cta" label="Get ReferralNow Premium for $49 →" />
+			</article>
+		</div>
+	</section>
+
+	<section class="section section-alt" aria-labelledby="package-heading">
+		<div class="container">
+			<h2 class="section-heading" id="package-heading">The Full Package</h2>
+			<p class="lede">What the $49 launch price actually includes.</p>
+			<div class="package-grid">
+				<article class="card">
+					<div class="feature-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none">
+							<path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+							<circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"></circle>
+						</svg>
+					</div>
+					<h3>Referral Tracking Included</h3>
+					<p>
+						You are not charged per referral. The $49 plan runs the tracking loop. A separate
+						Unlimited upgrade exists if you later outgrow Premium’s plan ceilings.
+					</p>
+				</article>
+				<article class="card">
+					<div class="feature-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none">
+							<path d="M4 8.5h16v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-9Z" stroke="currentColor" stroke-width="1.8"></path>
+							<path d="M4 8.5l3.2-3.5h9.6L20 8.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<h3>Shopify & WooCommerce Integration</h3>
+					<p>
+						Shopify and WooCommerce connect directly, along with BigCommerce, Wix, and Squarespace.
+						Other carts can confirm a sale with a thank-you tag.
+					</p>
+				</article>
+				<article class="card">
+					<div class="feature-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none">
+							<path d="M12 3.5l7 2.5v6.2c0 4.2-2.8 7.2-7 8.8-4.2-1.6-7-4.6-7-8.8V6l7-2.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+							<path d="M9 12.2l2 2 4-4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+						</svg>
+					</div>
+					<h3>Fraud Detection & Real Sale Verification</h3>
+					<p>
+						Every claim is scored before a reward moves. A sale is confirmed at the till, by a unique
+						code, by the store, or by the thank-you page.
+					</p>
+				</article>
+				<article class="card">
+					<div class="feature-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none">
+							<rect x="4" y="8" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.8"></rect>
+							<path d="M8 8V7a4 4 0 0 1 8 0v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+						</svg>
+					</div>
+					<h3>Automated Reward Payouts</h3>
+					<p>
+						Store credit, discounts, points, a free service, or a custom reward can release after a
+						confirmed sale. Cash and gift cards are on the Pro upgrade.
+					</p>
+				</article>
+				<article class="card">
+					<div class="feature-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none">
+							<path d="M12 4v16M7 8.5h7.2a2.8 2.8 0 0 1 0 5.6H8.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+						</svg>
+					</div>
+					<h3>No Monthly Subscription</h3>
+					<p>
+						The software fee stops at $49. You are not on a monthly referral-app bill that continues
+						whether or not anyone refers you.
+					</p>
+				</article>
+				<article class="card">
+					<div class="feature-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none">
+							<circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"></circle>
+							<path d="M8.5 12.2l2.2 2.2 4.8-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<h3>14-Day Money-Back Guarantee</h3>
+					<p>
+						Fourteen days to see it running. If it is not doing what the sales page says, you can
+						request a refund within that window.
+					</p>
+				</article>
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="compare-heading">
+		<div class="container">
+			<h2 class="section-heading" id="compare-heading">ReferralNow vs. Monthly Referral Apps</h2>
+			<p class="lede">
+				A year of a typical referral subscription costs more than this entire launch price. These are
+				public list prices, and they change.
+			</p>
+			<div class="compare-wrap">
+				<table class="compare">
+					<thead>
+						<tr>
+							<th scope="col"> </th>
+							<th class="is-highlight" scope="col">ReferralNow Premium</th>
+							<th scope="col">ReferralCandy</th>
+							<th scope="col">Referral Rock</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">Price</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">$49 once</td>
+							<td data-label="ReferralCandy">From $39/month, plus a success fee on referred sales</td>
+							<td data-label="Referral Rock">$250/month to start</td>
+						</tr>
+						<tr>
+							<th scope="row">Monthly software fee</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">None on this plan</td>
+							<td data-label="ReferralCandy">Yes. Plans also add 10.5% down to 0.25% of new referral sales</td>
+							<td data-label="Referral Rock">Yes. Month to month, or 10% off if you pay annually</td>
+						</tr>
+						<tr>
+							<th scope="row">Fraud and sale checks</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">Fraud score before payout, and the sale has to be confirmed</td>
+							<td data-label="ReferralCandy">Built for store referrals and affiliates, with a 7-day trial</td>
+							<td data-label="Referral Rock">Full program platform for larger teams</td>
+						</tr>
+						<tr>
+							<th scope="row">Shopify and WooCommerce</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">Direct Shopify and WooCommerce connections</td>
+							<td data-label="ReferralCandy">Strong Shopify fit. Entry plan is $39/month</td>
+							<td data-label="Referral Rock">E-commerce integrations, priced for teams, not a $49 test</td>
+						</tr>
+						<tr>
+							<th scope="row">Best fit</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">A business that already has customers and wants one payment</td>
+							<td data-label="ReferralCandy">Stores ready to pay every month plus a cut of referred orders</td>
+							<td data-label="Referral Rock">Larger programs. Overkill if you are just starting referrals</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="compare-note">
+				ReferralCandy’s public plans start at $39/month plus 10.5% of new referral sales, and go up
+				from there. Referral Rock’s Operator plan is $250/month. Twelve months of either one is many
+				times $49, before you pay your own rewards.
+			</p>
+		</div>
+	</section>
+
+	<section class="section section-alt" aria-labelledby="fit-heading">
+		<div class="container narrow">
+			<h2 class="section-heading" id="fit-heading">Is It Right For Your Business?</h2>
+			<p class="lede">
+				Do not buy this if you don't have any customers yet. You need a customer base to start a
+				referral program. A link with nobody to send it to will not create a business.
+			</p>
+			<p class="lede">
+				Do not buy this if you are looking for a massive enterprise CRM. ReferralNow is a referral
+				system, not a full sales platform for a large team. Referral Rock’s $250-a-month plan, and its
+				higher multi-location pricing, is the category built for that.
+			</p>
+			<p class="problem-close">
+				If you already have buyers, clients, or regulars, one new customer covers the $49. That is the
+				whole case.
+			</p>
+			<Cta class="btn btn-lg section-cta" label="I'm Ready to Grow My Referrals →" />
+		</div>
+	</section>
+
+	<section class="section" id="faq" aria-labelledby="faq-heading">
+		<div class="container">
+			<h2 class="section-heading" id="faq-heading">Pricing questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">The Final Verdict on Pricing</h2>
+			<p class="subhead">
+				For any business that already has customers, the one-time fee is the straightforward choice
+				next to a monthly referral subscription. You pay $49 once for the software, you pay rewards
+				only when a sale is real, and you can walk away inside 14 days if it is not the fit.
+			</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> after purchase →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>$49 once · Not a monthly subscription</p>
+		<Cta class="btn" label="Get ReferralNow Premium for $49 →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			const observer = new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			});
+			observer.observe(trigger);
+		}
+	</script>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Affiliate Disclosure';
+const description =
+	'Affiliate disclosure for ReferralNowReview.com. This independent site may earn a commission if you buy through JVZoo links, at no extra cost to you.';
+const canonicalURL = new URL('/affiliate-disclosure', Astro.site).href;
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} hideCta>
+	<article class="legal-page">
+		<h1>Affiliate Disclosure</h1>
+		<p class="updated">Last updated October 23, 2026</p>
+		<p>
+			ReferralNowReview.com is an independent review site. We are not the maker of ReferralNow Premium,
+			and we do not sell the software ourselves.
+		</p>
+		<p>
+			Some links on this site are affiliate links. If you buy through those links, we may earn a
+			commission from JVZoo. That commission does not increase the price you pay.
+		</p>
+		<h2>What that means</h2>
+		<ul>
+			<li>The product is sold by the vendor, not by this website.</li>
+			<li>Our reviews and comparisons are our own opinions.</li>
+			<li>A commission does not change the $49 launch price shown by the seller.</li>
+			<li>You can choose not to use our links.</li>
+		</ul>
+		<h2>FTC notice</h2>
+		<p>
+			In line with the U.S. Federal Trade Commission’s endorsement guides, we tell you when a link may
+			earn us money. Assume that a button or link pointing to the ReferralNow offer is an affiliate
+			link unless the page says otherwise.
+		</p>
+		<p>
+			Questions about this disclosure: <a href="mailto:contact@referralnowreview.com">contact@referralnowreview.com</a>
+		</p>
+		<p>
+			Related: <a href="/privacy-policy">Privacy policy</a> · <a href="/terms">Terms of service</a>
+		</p>
+	</article>
+</BaseLayout>

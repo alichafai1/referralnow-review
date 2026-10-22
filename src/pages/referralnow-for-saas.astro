@@ -1,0 +1,200 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'ReferralNow for SaaS: Lower CAC and Boost LTV';
+const description =
+	'ReferralNow for SaaS founders. Give users a tracked referral link, confirm the signup or sale, and avoid another monthly growth subscription. $49 once.';
+const canonicalURL = new URL('/referralnow-for-saas', Astro.site).href;
+
+const checks = [
+	'A reason for users to bring the next account',
+	'More value from each customer you already paid to acquire',
+	'A referral loop you can actually measure',
+];
+
+const faqs = [
+	{
+		q: 'Can ReferralNow track a SaaS signup?',
+		a: 'Point each user’s link at your signup or checkout page. Put the thank-you tag on the confirmation page. When that page loads after a real signup or payment, the advocate is credited and the claim is checked.',
+	},
+	{
+		q: 'What does Give $10, Get $10 mean here?',
+		a: 'It is a reward you choose: the friend gets an offer, and the user earns credit when the sale is confirmed. ReferralNow does not pay that $10. You do. The $49 is only the software.',
+	},
+	{
+		q: 'Will this guarantee a viral coefficient above 1?',
+		a: 'No. A K-factor above 1 means each user brings in more than one new user. ReferralNow gives you the tracked loop. Whether you get there depends on the product and whether users actually share.',
+	},
+	{
+		q: 'Is this a monthly SaaS growth tool?',
+		a: 'The Premium launch price is $49 once. There is no monthly software fee on this plan. Rewards and any SMS costs are separate.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'For SaaS', href: '/referralnow-for-saas' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: { '@type': 'Answer', text: item.a },
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+				{ '@type': 'ListItem', position: 2, name: 'For SaaS', item: canonicalURL },
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">SaaS founders · $49 once</p>
+			<h1>ReferralNow for SaaS Founders: Lower CAC and Boost LTV</h1>
+			<p class="subhead">
+				Paid clicks for B2B software are expensive, and they stop the day you stop paying. A referral
+				loop is how a product grows from the users who already have an account.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container narrow">
+			<h2 class="section-heading">Ads rent the next account. Referrals have to be tracked.</h2>
+			<ul class="pain-list">
+				<li>
+					<span class="mark mark-no" aria-hidden="true">✕</span>
+					<span>Cost per trial keeps rising, and most trials never become paid accounts.</span>
+				</li>
+				<li>
+					<span class="mark mark-no" aria-hidden="true">✕</span>
+					<span>Users mention the product in Slack and never get a link that records the signup.</span>
+				</li>
+				<li>
+					<span class="mark mark-no" aria-hidden="true">✕</span>
+					<span>A growth suite that bills every month can cost more than the referrals it creates.</span>
+				</li>
+			</ul>
+			<Cta class="btn section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container">
+			<h2 class="section-heading">A Give $10, Get $10 loop you can prove</h2>
+			<div class="package-grid">
+				<article class="card">
+					<p class="rank-kicker">The offer</p>
+					<h3>Friend gets $10. User earns $10.</h3>
+					<p>You set the amounts. The friend gets a reason to start. The user earns credit when the sale is real.</p>
+				</article>
+				<article class="card">
+					<p class="rank-kicker">The proof</p>
+					<h3>Confirmed on the thank-you page</h3>
+					<p>The link points at signup or checkout. The confirmation page credits that user. It is not an honor system.</p>
+				</article>
+				<article class="card">
+					<p class="rank-kicker">The check</p>
+					<h3>Fraud score before credit</h3>
+					<p>Self-referrals and odd bursts can be blocked. Rewards wait through your refund window.</p>
+				</article>
+				<article class="card">
+					<p class="rank-kicker">The bill</p>
+					<h3>$49 once for the software</h3>
+					<p>You pay the $10 rewards. You do not pay a monthly referral subscription on this plan.</p>
+				</article>
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Add the loop for $49 →" />
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container narrow">
+			<h2 class="section-heading">What founders are trying to change</h2>
+			<p class="lede">
+				A referral program can reduce how many accounts you have to buy, and it can make each acquired
+				customer worth more if they bring another. That is the point of the loop. It is not a promise
+				that churn falls or that each user brings in more than one new user.
+			</p>
+			<ul class="check-list">
+				{
+					checks.map((item) => (
+						<li>
+							<span class="mark mark-yes" aria-hidden="true">✓</span>
+							<span>{item}</span>
+						</li>
+					))
+				}
+			</ul>
+			<Cta class="btn section-cta" label="Lock in ReferralNow for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt" id="faq">
+		<div class="container">
+			<h2 class="section-heading">SaaS questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">Give every user a link that records the next account</h2>
+			<p class="subhead">
+				ReferralNow is the tracking layer: offer, confirmation, fraud score, reward. The $49 does not
+				buy the credits you give away.
+			</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read the <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>SaaS referral loop · $49 once</p>
+		<Cta class="btn" label="Get ReferralNow Premium for $49 →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			}).observe(trigger);
+		}
+	</script>
+</BaseLayout>

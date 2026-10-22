@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'ReferralNow vs. Referral Rock: Enterprise vs. Solo Marketer';
+const description =
+	'ReferralNow vs Referral Rock. Referral Rock starts at $250 a month for teams. ReferralNow Premium is $49 once for owners who want referral tracking without an enterprise contract.';
+const canonicalURL = new URL('/referralnow-vs-referral-rock', Astro.site).href;
+
+const faqs = [
+	{
+		q: 'Is Referral Rock worth $250 a month?',
+		a: 'It can be, for a team that needs a program advisor, many seats, and a hosted portal at that scale. A solo owner or a small shop usually does not need that bill. ReferralNow Premium covers referral tracking for $49 once.',
+	},
+	{
+		q: 'Who is Referral Rock built for?',
+		a: 'Referral Rock public pricing starts with an Operator plan at $250 a month, with room for multiple admins and recruiters. Higher plans are for multi-location brands. ReferralNow is aimed at one business that wants customers to share a link.',
+	},
+	{
+		q: 'Is ReferralNow easier to start?',
+		a: 'Yes for a small team. You draft a campaign from a trade pack or one sentence, share a link or QR code, and confirm sales before rewards. Referral Rock includes a program advisor because the setup is built for a larger organization.',
+	},
+	{
+		q: 'Do both tools avoid a monthly fee?',
+		a: 'No. Referral Rock is a subscription from $250 a month. ReferralNow Premium is a one-time $49 payment with no monthly software fee on that plan.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Vs Referral Rock', href: '/referralnow-vs-referral-rock' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: { '@type': 'Answer', text: item.a },
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+				{ '@type': 'ListItem', position: 2, name: 'Vs Referral Rock', item: canonicalURL },
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">Enterprise budget vs one payment</p>
+			<h1>ReferralNow vs. Referral Rock: Enterprise vs. Solo Marketer</h1>
+			<p class="subhead">
+				Referral Rock is a team platform with a public price of $250 a month. ReferralNow Premium is
+				the tracking loop for a bootstrapped business, at $49 once.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container narrow">
+			<article class="answer-box">
+				<p class="eyebrow">Quick verdict</p>
+				<h2 class="section-heading">Same job, different buyer</h2>
+				<p class="lede">
+					Referral Rock is built for enterprises and larger teams with big budgets, starting at
+					$250 a month. ReferralNow is built for bootstrapped businesses that want referral tracking
+					for $49 once.
+				</p>
+				<Cta class="btn section-cta" label="Get ReferralNow Premium for $49 →" />
+			</article>
+		</div>
+	</section>
+
+	<section class="section section-alt" aria-labelledby="table-heading">
+		<div class="container">
+			<h2 class="section-heading" id="table-heading">Price, audience, and ease of use</h2>
+			<p class="lede">Referral Rock’s Operator plan price is from their public pricing page.</p>
+			<div class="compare-wrap">
+				<table class="compare">
+					<thead>
+						<tr>
+							<th scope="col"> </th>
+							<th class="is-highlight" scope="col">ReferralNow Premium</th>
+							<th scope="col">Referral Rock</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">Price</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">$49 once. No monthly software fee on this plan.</td>
+							<td data-label="Referral Rock">$250 a month to start. Annual billing saves 10%. Larger plans cost more.</td>
+						</tr>
+						<tr>
+							<th scope="row">Target audience</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">A store, local business, or solo offer that already has customers.</td>
+							<td data-label="Referral Rock">Teams that need admins, recruiters, and a program advisor. Multi-location pricing starts higher.</td>
+						</tr>
+						<tr>
+							<th scope="row">Ease of use</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">Draft a campaign, share a link or QR code, confirm the sale, then reward.</td>
+							<td data-label="Referral Rock">A fuller platform. The advisor exists because rollout is a project, not a one-afternoon setup.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="fit-heading">
+		<div class="container narrow">
+			<h2 class="section-heading" id="fit-heading">When the enterprise tool is the wrong buy</h2>
+			<p class="lede">
+				A year of Referral Rock at $250 is $3,000 before add-ons. That buys seats and a managed
+				program. It does not make a small customer list share you any faster. If you are the owner and
+				the marketer, ReferralNow’s one-time fee is the version of this job you can actually start.
+			</p>
+			<p class="lede">
+				Pick Referral Rock if you have a team, a franchise, or a budget that expects a $250 line item.
+				Pick ReferralNow if you need tracked word-of-mouth without that contract.
+			</p>
+			<Cta class="btn section-cta" label="I'm Ready to Grow My Referrals →" />
+		</div>
+	</section>
+
+	<section class="section section-alt" id="faq" aria-labelledby="faq-heading">
+		<div class="container">
+			<h2 class="section-heading" id="faq-heading">ReferralNow vs Referral Rock questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">Keep the tracking. Drop the enterprise bill.</h2>
+			<p class="subhead">
+				ReferralNow confirms the sale, scores the claim, and stops at $49 for the software. You still
+				pay rewards, and you still have to ask customers to share.
+			</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read the <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>$49 once · Referral Rock starts at $250/month</p>
+		<Cta class="btn" label="Get ReferralNow Premium for $49 →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			}).observe(trigger);
+		}
+	</script>
+</BaseLayout>

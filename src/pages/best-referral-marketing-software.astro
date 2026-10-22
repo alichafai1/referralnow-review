@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'Best Referral Marketing Software in 2026 (Top 5 Ranked)';
+const description =
+	'The best referral marketing software in 2026, ranked. ReferralNow Premium is first for a $49 one-time price. Then ReferralCandy, Referral Rock, Yotpo, and InviteBox.';
+const canonicalURL = new URL('/best-referral-marketing-software', Astro.site).href;
+const home = new URL('/', Astro.site).href;
+
+const tools = [
+	{
+		name: 'ReferralNow Premium',
+		url: home,
+		kicker: 'Best for one-time pricing and small businesses',
+		text: 'ReferralNow tracks a personal link, confirms the sale, scores the claim, and releases a reward. The launch price is $49 once, with no monthly software fee. You still pay the rewards, and SMS still runs through Twilio.',
+	},
+	{
+		name: 'ReferralCandy',
+		url: new URL('/referralnow-vs-referralcandy', Astro.site).href,
+		kicker: 'Best for established ecommerce',
+		text: 'ReferralCandy is a known Shopify referral brand. Public plans start at $39 a month and add a success fee on new referral sales. Pick it if a monthly bill and a percentage of orders are acceptable.',
+	},
+	{
+		name: 'Referral Rock',
+		url: new URL('/referralnow-vs-referral-rock', Astro.site).href,
+		kicker: 'Best for enterprise teams',
+		text: 'Referral Rock starts at $250 a month and is built for teams, seats, and larger programs. It is the wrong first tool if you are the only marketer.',
+	},
+	{
+		name: 'Yotpo',
+		url: new URL('/referralnow-vs-yotpo', Astro.site).href,
+		kicker: 'Best for an all-in-one ecommerce suite',
+		text: 'Yotpo covers reviews, loyalty, and referrals. The free referral plan is basic. Pro starts at $199 a month. Buy it when you want the suite, not when you only need referrals.',
+	},
+	{
+		name: 'InviteBox',
+		kicker: 'Best for basic viral loops',
+		text: 'InviteBox is a widget for invite and reward campaigns. Directory listings put the start price around $29 a month, with participant caps on lower plans. It is still a subscription, and it is a simpler loop than a full sale-verification system.',
+	},
+];
+
+const faqs = [
+	{
+		q: 'What is the best referral software for a small business in 2026?',
+		a: 'ReferralNow Premium. It is $49 once, it confirms the sale before a reward, and it does not add a monthly software fee. Monthly tools such as ReferralCandy, Yotpo Pro, and Referral Rock cost more across a year.',
+	},
+	{
+		q: 'Why is ReferralNow ranked above ReferralCandy?',
+		a: 'ReferralCandy is a strong ecommerce product, and it charges every month plus a success fee. ReferralNow does the referral job for a one-time software fee. That is the better deal for a business that is not trying to buy an enterprise brand.',
+	},
+	{
+		q: 'Are these prices guaranteed?',
+		a: 'No. Competitor prices are public list prices checked in 2026 and they change. ReferralNow’s launch price on the seller page is $49 once. Confirm the live price before you buy.',
+	},
+	{
+		q: 'Does the top pick work with Shopify?',
+		a: 'Yes. ReferralNow connects directly to Shopify and WooCommerce, and also to BigCommerce, Wix, and Squarespace.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Best referral software', href: '/best-referral-marketing-software' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'ItemList',
+			name: title,
+			itemListOrder: 'https://schema.org/ItemListOrderAscending',
+			numberOfItems: tools.length,
+			itemListElement: tools.map((tool, index) => ({
+				'@type': 'ListItem',
+				position: index + 1,
+				name: tool.name,
+				...(tool.url ? { url: tool.url } : {}),
+			})),
+		},
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: { '@type': 'Answer', text: item.a },
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: home },
+				{ '@type': 'ListItem', position: 2, name: 'Best referral software', item: canonicalURL },
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">Top 5 · 2026</p>
+			<h1>Best Referral Marketing Software in 2026</h1>
+			<p class="subhead">
+				Most of this category is a monthly subscription. The ranking below puts the one-time $49 tool
+				first, then the monthly products that fit a different buyer.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="rank-heading">
+		<div class="container">
+			<h2 class="section-heading" id="rank-heading">The ranking</h2>
+			<ol class="rank-list">
+				<li class="rank-card is-top">
+					<span class="rank-num">1</span>
+					<div>
+						<p class="rank-kicker">{tools[0].kicker}</p>
+						<h3>{tools[0].name}</h3>
+						<p>{tools[0].text}</p>
+						<Cta class="btn section-cta" label="Get ReferralNow Premium for $49 →" />
+					</div>
+				</li>
+				{
+					tools.slice(1).map((tool, index) => (
+						<li class="rank-card">
+							<span class="rank-num">{index + 2}</span>
+							<div>
+								<p class="rank-kicker">{tool.kicker}</p>
+								<h3>{tool.name}</h3>
+								<p>{tool.text}</p>
+							</div>
+						</li>
+					))
+				}
+			</ol>
+			<Cta class="btn btn-lg section-cta" label="Get the #1 pick for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt" aria-labelledby="why-heading">
+		<div class="container narrow">
+			<h2 class="section-heading" id="why-heading">Why a one-time tool ranks first</h2>
+			<p class="lede">
+				ReferralCandy, Referral Rock, Yotpo Pro, and InviteBox all renew. A year of the cheapest
+				serious monthly plans is several hundred dollars, and Referral Rock is $250 a month before
+				you count a team. ReferralNow’s software fee is $49 once. The rewards are still yours to pay,
+				which is the honest part of every referral program.
+			</p>
+			<Cta class="btn section-cta" label="Lock in ReferralNow for $49 →" />
+		</div>
+	</section>
+
+	<section class="section" id="faq" aria-labelledby="faq-heading">
+		<div class="container">
+			<h2 class="section-heading" id="faq-heading">Questions about this ranking</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">Start with the tool that does not renew</h2>
+			<p class="subhead">
+				If you already have customers, ReferralNow Premium is the 2026 pick for tracked referrals
+				without a monthly software bill.
+			</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read the <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>Ranked #1 for a $49 one-time price</p>
+		<Cta class="btn" label="Get ReferralNow Premium for $49 →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			}).observe(trigger);
+		}
+	</script>
+</BaseLayout>

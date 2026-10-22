@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'How to Build a Referral Program from Scratch (2026 Guide)';
+const description =
+	'Build a referral program in five steps: goal, reward, software, promotion, and tracking. ReferralNow Premium is the $49 one-time option for the software step.';
+const canonicalURL = new URL('/how-to-build-a-referral-program', Astro.site).href;
+
+const steps = [
+	{
+		name: 'Choose your goal',
+		text: 'Pick one outcome. More first-time buyers, more repeat visits, or more signups. A program that tries to do all three at once is hard to explain to a customer.',
+	},
+	{
+		name: 'Pick your reward',
+		text: 'Decide what the friend gets and what the advocate earns. A discount, store credit, or a free service is enough. Cap the budget so a busy week cannot spend more than you planned. You pay the reward. The software does not.',
+	},
+	{
+		name: 'Choose the software',
+		text: 'You need a link per customer, a way to confirm the sale, and a fraud check before the reward. ReferralNow Premium does that for $49 once. Monthly tools such as ReferralCandy and Referral Rock charge every month. ReferralNow is the shorter setup: a trade pack or one sentence, then a link or QR code. No app for your customer.',
+	},
+	{
+		name: 'Promote it',
+		text: 'Tell people at the moment they are happiest. After checkout, on the receipt, in one email, or with a QR code on the counter. A program nobody hears about will not run.',
+	},
+	{
+		name: 'Track and optimize',
+		text: 'Watch who shared, who bought, and what each new customer cost. Raise the reward if nobody shares. Lower it if the reward eats the margin. Stop a campaign when it hits the ceiling you set.',
+	},
+];
+
+const faqs = [
+	{
+		q: 'Can I run a referral program without software?',
+		a: 'You can ask people to mention your name. You cannot prove who sent whom, or block a fake referral, without a link and a confirmation step. That is the part software is for.',
+	},
+	{
+		q: 'What reward should I start with?',
+		a: 'Something smaller than your margin and easy to explain. A modest discount for the friend and store credit for the advocate is a common start. Change it after you see whether people share.',
+	},
+	{
+		q: 'Why is ReferralNow the software step?',
+		a: 'The Premium plan is $49 once, customers do not download an app, and a sale is confirmed before a reward moves. Monthly referral apps keep billing after the program is live.',
+	},
+	{
+		q: 'How soon should I ask customers?',
+		a: 'Ask right after a good purchase or visit, then once more if they have not shared. More than that starts to feel like nagging.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'How to build a program', href: '/how-to-build-a-referral-program' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'HowTo',
+			name: title,
+			description,
+			step: steps.map((step, index) => ({
+				'@type': 'HowToStep',
+				position: index + 1,
+				name: step.name,
+				text: step.text,
+			})),
+		},
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: { '@type': 'Answer', text: item.a },
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+				{ '@type': 'ListItem', position: 2, name: 'How to build a program', item: canonicalURL },
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">2026 guide · Five steps</p>
+			<h1>How to Build a Referral Program from Scratch</h1>
+			<p class="subhead">
+				A referral program is a goal, a reward, a tracked link, and a way to ask. The software is step
+				three. ReferralNow Premium is the one-time option for that step.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="steps-heading">
+		<div class="container">
+			<h2 class="section-heading" id="steps-heading">The five steps</h2>
+			<ol class="rank-list">
+				{
+					steps.map((step, index) => (
+						<li class:list={['rank-card', { 'is-top': index === 2 }]}>
+							<span class="rank-num">{index + 1}</span>
+							<div>
+								<h3>{step.name}</h3>
+								<p>{step.text}</p>
+								{index === 2 && <Cta class="btn section-cta" label="Use ReferralNow for this step →" />}
+							</div>
+						</li>
+					))
+				}
+			</ol>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container narrow">
+			<article class="answer-box">
+				<h2 class="section-heading">What to skip</h2>
+				<ul class="check-list">
+					<li>
+						<span class="mark mark-no" aria-hidden="true">✕</span>
+						<span>A program with no customers to ask.</span>
+					</li>
+					<li>
+						<span class="mark mark-no" aria-hidden="true">✕</span>
+						<span>A reward bigger than the profit on the sale.</span>
+					</li>
+					<li>
+						<span class="mark mark-no" aria-hidden="true">✕</span>
+						<span>A monthly app if a $49 tool already confirms the sale.</span>
+					</li>
+				</ul>
+			</article>
+			<Cta class="btn section-cta" label="Lock in ReferralNow for $49 →" />
+		</div>
+	</section>
+
+	<section class="section" id="faq">
+		<div class="container">
+			<h2 class="section-heading">Guide questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">Start with the software step</h2>
+			<p class="subhead">The goal and the reward are yours. ReferralNow handles the link, the confirmation, and the fraud score.</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read the <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>Step 3, the software · $49 once</p>
+		<Cta class="btn" label="Get ReferralNow Premium for $49 →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			}).observe(trigger);
+		}
+	</script>
+</BaseLayout>

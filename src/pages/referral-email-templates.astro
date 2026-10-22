@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = '10 Plug-and-Play Referral Email Templates (Free Download)';
+const description =
+	'Ten copy-and-paste referral emails for the first ask, a reminder, and a thank-you. Then track the replies with ReferralNow Premium for $49 once.';
+const canonicalURL = new URL('/referral-email-templates', Astro.site).href;
+
+const templates = [
+	{
+		name: 'The day-after ask',
+		subject: 'You can send the next person our way',
+		body: `Hi {{first_name}},
+
+Thanks for your order yesterday. If someone you know would want the same thing, here is your personal link:
+
+{{referral_link}}
+
+They get {{friend_offer}}. You get {{your_reward}} after their order is confirmed.
+
+No account to create. The link is already yours.`,
+	},
+	{
+		name: 'The short ask',
+		subject: 'A link, if you want it',
+		body: `Hi {{first_name}},
+
+Happy customers are the reason new ones show up. If you want to send someone, use this link:
+
+{{referral_link}}
+
+You only earn {{your_reward}} when they actually buy.`,
+	},
+	{
+		name: 'The specific ask',
+		subject: 'Know one person who would use this?',
+		body: `Hi {{first_name}},
+
+I am not asking you to post anything. If one person comes to mind, send them this:
+
+{{referral_link}}
+
+They will see {{friend_offer}}. You will see {{your_reward}} once their purchase is confirmed.`,
+	},
+	{
+		name: 'The local-visit ask',
+		subject: 'If you send a friend, we will know',
+		body: `Hi {{first_name}},
+
+Next time someone asks where you go, you can hand them this instead of just the name:
+
+{{referral_link}}
+
+We will see that they came from you, and {{your_reward}} is yours after they pay.`,
+	},
+	{
+		name: 'The one-week reminder',
+		subject: 'Your link is still unused',
+		body: `Hi {{first_name}},
+
+You have a referral link and it has not been used yet. No pressure. If you still want it:
+
+{{referral_link}}
+
+It only pays {{your_reward}} after a real order.`,
+	},
+	{
+		name: 'The quiet reminder',
+		subject: 'Still happy to send one person?',
+		body: `Hi {{first_name}},
+
+Checking once. If someone is still on the fence, this is the link with {{friend_offer}}:
+
+{{referral_link}}
+
+I will not email you about this again unless a reward is ready.`,
+	},
+	{
+		name: 'A friend just claimed',
+		subject: 'Someone used your link',
+		body: `Hi {{first_name}},
+
+{{friend_name}} just claimed your offer. Nothing is paid yet.
+
+If they complete the order, {{your_reward}} is held until the refund window passes, then it is yours to spend with us.`,
+	},
+	{
+		name: 'The thank-you',
+		subject: 'You sent us a customer',
+		body: `Hi {{first_name}},
+
+{{friend_name}} bought, and the order checked out. Thank you.
+
+{{your_reward}} is on your balance. Use this code when you are ready: {{reward_code}}`,
+	},
+	{
+		name: 'The reward is ready',
+		subject: 'Your referral reward is ready',
+		body: `Hi {{first_name}},
+
+The refund window passed, so your reward is ready.
+
+Balance: {{reward_amount}}
+Code: {{reward_code}}
+
+Spend it with us online or at the counter. Whatever is left stays on the balance.`,
+	},
+	{
+		name: 'The restart note',
+		subject: 'Your old referral link still works',
+		body: `Hi {{first_name}},
+
+It has been a while. Your link did not expire:
+
+{{referral_link}}
+
+Same offer for them. Same {{your_reward}} for you, only after they buy.`,
+	},
+];
+
+const faqs = [
+	{
+		q: 'Can I paste these into my email tool?',
+		a: 'Yes. Replace the brackets with your link, offer, and reward. They are written to be short enough for email or a trimmed SMS.',
+	},
+	{
+		q: 'Do these emails track the sale by themselves?',
+		a: 'No. A link in an email only tracks the sale if that link belongs to a system that confirms the order. That is what ReferralNow does. The words do not.',
+	},
+	{
+		q: 'Are these the bonus files?',
+		a: 'These ten are on the page so you can copy them now. Buying through this site also includes the bonus pack, sent after you forward your receipt to bonuses@referralnowreview.com.',
+	},
+	{
+		q: 'How many times should I email?',
+		a: 'One ask, one reminder, then only write again when a friend claims or a reward is ready. More than that feels like spam.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Email templates', href: '/referral-email-templates' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: { '@type': 'Answer', text: item.a },
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+				{ '@type': 'ListItem', position: 2, name: 'Email templates', item: canonicalURL },
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">Copy, paste, personalize</p>
+			<h1>10 Plug-and-Play Referral Email Templates</h1>
+			<p class="subhead">
+				Four ways to ask, two reminders, and four notes for after someone acts. Swap the brackets for
+				your link and your reward.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<h2 class="section-heading">The ten emails</h2>
+			<div class="template-list">
+				{
+					templates.map((template, index) => (
+						<article class="template-card">
+							<h3>
+								{index + 1}. {template.name}
+							</h3>
+							<p class="template-subject">Subject: {template.subject}</p>
+							<pre class="template-body">{template.body}</pre>
+						</article>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium + My Bonuses →" />
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container narrow">
+			<article class="answer-box">
+				<h2 class="section-heading">The emails do not track the sale</h2>
+				<p class="lede">
+					Want the software to track these referrals automatically? Get ReferralNow Premium and the
+					bonuses here. The link in the email is what gets recorded. The words only get the click.
+				</p>
+				<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium + My Bonuses →" />
+			</article>
+		</div>
+	</section>
+
+	<section class="section" id="faq">
+		<div class="container">
+			<h2 class="section-heading">Template questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Track the links for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">Send one. Then know if it worked.</h2>
+			<p class="subhead">
+				Copy a template today. ReferralNow is what ties that link to a confirmed order for $49 once.
+			</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read the <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>Track the links in these emails · $49 once</p>
+		<Cta class="btn" label="Get ReferralNow Premium + My Bonuses →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			}).observe(trigger);
+		}
+	</script>
+</BaseLayout>

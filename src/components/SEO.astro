@@ -1,0 +1,73 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	canonicalURL?: string | URL;
+	ogImage?: string;
+	ogType?: string;
+	schema?: unknown;
+	noindex?: boolean;
+}
+
+const {
+	title,
+	description,
+	canonicalURL,
+	ogImage,
+	ogType = 'website',
+	schema,
+	noindex = false,
+} = Astro.props;
+
+const canonical = resolveCanonical(canonicalURL ?? Astro.url, Astro.site);
+const image = ogImage ? toAbsolute(ogImage, Astro.site) : undefined;
+const schemaJson = schema
+	? JSON.stringify(schema).replace(/</g, '\\u003c')
+	: undefined;
+
+function resolveCanonical(value: string | URL, site: URL | undefined) {
+	const url = toUrl(value, site);
+	if (url.pathname !== '/' && url.pathname.endsWith('/')) {
+		url.pathname = url.pathname.replace(/\/+$/, '');
+	}
+	url.hash = '';
+	return url.href;
+}
+
+function toAbsolute(value: string, site: URL | undefined) {
+	return toUrl(value, site).href;
+}
+
+function toUrl(value: string | URL, site: URL | undefined) {
+	if (value instanceof URL) return new URL(value.href);
+	return new URL(value, site ?? Astro.url);
+}
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="theme-color" content="#2563EB" />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content="ReferralNow Review" />
+{image && <meta property="og:image" content={image} />}
+
+<meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{image && <meta name="twitter:image" content={image} />}
+
+{
+	schemaJson && (
+		<script type="application/ld+json" set:html={schemaJson} />
+	)
+}

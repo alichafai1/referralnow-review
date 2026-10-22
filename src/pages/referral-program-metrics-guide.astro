@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'The 5 Referral Program Metrics You Must Track (K-Factor & More)';
+const description =
+	'Five referral metrics that matter: participation, K-factor, conversion rate, cost per customer, and reward cost. ReferralNow records the sales so you are not doing it in a spreadsheet.';
+const canonicalURL = new URL('/referral-program-metrics-guide', Astro.site).href;
+
+const metrics = [
+	{
+		name: 'Participation rate',
+		text: 'The share of customers who actually share a link. If 100 people could refer and 8 do, participation is 8%. A low number usually means you have not asked, not that the reward math is wrong.',
+	},
+	{
+		name: 'K-factor',
+		text: 'New customers brought in by each existing customer. A simple version is invites sent per customer, times the share of those invites that buy. Above 1, each customer brings in more than one new customer. Most programs never get there. The number is still worth watching.',
+	},
+	{
+		name: 'Viral coefficient',
+		text: 'Another name for that same idea: how many additional customers one customer creates. Do not track it as a second mystery metric. Use one formula and stick to it.',
+	},
+	{
+		name: 'Referral conversion rate',
+		text: 'Of the friends who open the offer, how many buy. A weak offer or a confusing page shows up here. The advocate did their part. The page did not.',
+	},
+	{
+		name: 'Cost per new customer',
+		text: 'What you spent to get one new buyer. Compare ad cost with referred cost. Referred cost is the reward you paid, divided by the new customers that reward produced. ReferralNow’s dashboard shows referred customers, referred revenue, and that cost next to your ad cost.',
+	},
+];
+
+const faqs = [
+	{
+		q: 'Does ReferralNow calculate K-factor for me?',
+		a: 'The dashboard records the inputs: new referred customers, referred revenue, and cost per new customer next to ad cost. K-factor is those counts turned into “new customers per existing customer.” You do not have to rebuild the sales in a spreadsheet first.',
+	},
+	{
+		q: 'What is a good referral conversion rate?',
+		a: 'There is no universal number. Compare it with your normal sales page. If referred friends convert worse, the offer or the landing step is the problem.',
+	},
+	{
+		q: 'Is a K-factor above 1 required?',
+		a: 'No. A program can still be worth running if referred customers cost less than ad customers. Above 1 is rare and is not a promise of the software.',
+	},
+	{
+		q: 'What should I ignore at the start?',
+		a: 'Vanity totals. Shares with no sales, and rewards paid on sales you cannot confirm. Track confirmed buyers and what each one cost.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Referral metrics', href: '/referral-program-metrics-guide' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: { '@type': 'Answer', text: item.a },
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+				{ '@type': 'ListItem', position: 2, name: 'Referral metrics', item: canonicalURL },
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">Five numbers · No spreadsheet required for the sales</p>
+			<h1>The 5 Referral Program Metrics You Must Track</h1>
+			<p class="subhead">
+				K-factor, conversion, and cost only help if the sales underneath them are real. ReferralNow
+				records the referred customers and what each one cost, next to your ads.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<h2 class="section-heading">The five metrics</h2>
+			<ol class="rank-list">
+				{
+					metrics.map((metric, index) => (
+						<li class="rank-card">
+							<span class="rank-num">{index + 1}</span>
+							<div>
+								<h3>{metric.name}</h3>
+								<p>{metric.text}</p>
+							</div>
+						</li>
+					))
+				}
+			</ol>
+			<Cta class="btn btn-lg section-cta" label="Track the sales for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container narrow">
+			<article class="answer-box">
+				<h2 class="section-heading">Why a spreadsheet breaks</h2>
+				<ul class="pain-list">
+					<li>
+						<span class="mark mark-no" aria-hidden="true">✕</span>
+						<span>A customer says they sent a friend. You cannot match that to an order.</span>
+					</li>
+					<li>
+						<span class="mark mark-no" aria-hidden="true">✕</span>
+						<span>A shared discount code hides who sent whom.</span>
+					</li>
+					<li>
+						<span class="mark mark-no" aria-hidden="true">✕</span>
+						<span>Ad cost and reward cost live in two different tools, so CAC is a guess.</span>
+					</li>
+				</ul>
+				<p class="problem-close">
+					ReferralNow ties the link to a confirmed sale, then shows referred revenue and cost per new
+					customer beside ad cost. That is the tracking. You still interpret K-factor from those counts.
+				</p>
+			</article>
+			<Cta class="btn section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="section" id="faq">
+		<div class="container">
+			<h2 class="section-heading">Metric questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">Measure confirmed customers, not vibes</h2>
+			<p class="subhead">The dashboard is $49 once. The rewards you pay are still separate.</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read the <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>See cost per referred customer · $49 once</p>
+		<Cta class="btn" label="Get ReferralNow Premium for $49 →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			}).observe(trigger);
+		}
+	</script>
+</BaseLayout>

@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'ReferralNow vs. ReferralCandy: Which is Better in 2026?';
+const description =
+	'ReferralNow vs ReferralCandy in 2026. Compare the $49 one-time price with ReferralCandy monthly plans and success fees, plus setup, fraud checks, and Shopify.';
+const canonicalURL = new URL('/referralnow-vs-referralcandy', Astro.site).href;
+
+const faqs = [
+	{
+		q: 'Is ReferralNow cheaper than ReferralCandy?',
+		a: 'For most small businesses, yes. ReferralNow Premium is $49 once. ReferralCandy public plans start at $39 a month and also take a percentage of new referral sales. A year of that monthly plan costs more than the ReferralNow launch price before the success fee.',
+	},
+	{
+		q: 'Does ReferralCandy work with Shopify?',
+		a: 'Yes. ReferralCandy is widely used by Shopify stores. ReferralNow also connects to Shopify directly, and to WooCommerce, BigCommerce, Wix, and Squarespace.',
+	},
+	{
+		q: 'Which one checks that a referral is real?',
+		a: 'ReferralNow confirms the sale first, then scores the claim before a reward moves. You are not paying a reward on an honor-system code. ReferralCandy tracks store referrals and charges a success fee on referred sales.',
+	},
+	{
+		q: 'Who should pick ReferralCandy instead?',
+		a: 'Choose ReferralCandy if you want a long-running ecommerce brand, you are fine paying every month, and a percentage of referred orders is acceptable. Choose ReferralNow if you want the tracking loop for one $49 payment.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Vs ReferralCandy', href: '/referralnow-vs-referralcandy' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: { '@type': 'Answer', text: item.a },
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+				{ '@type': 'ListItem', position: 2, name: 'Vs ReferralCandy', item: canonicalURL },
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">2026 comparison · $49 once vs monthly</p>
+			<h1>ReferralNow vs. ReferralCandy: Which is Better in 2026?</h1>
+			<p class="subhead">
+				ReferralCandy is an established ecommerce brand with a monthly bill. ReferralNow Premium is the
+				same job, referrals tracked before anyone is paid, for $49 once.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container narrow">
+			<article class="answer-box">
+				<p class="eyebrow">Quick verdict</p>
+				<h2 class="section-heading">Pick the bill you can live with</h2>
+				<p class="lede">
+					Choose ReferralCandy if you want an established enterprise brand and you are ready to pay
+					every month plus a cut of referred sales. Choose ReferralNow if you want a one-time $49
+					solution without a monthly software fee.
+				</p>
+				<Cta class="btn section-cta" label="Get ReferralNow Premium for $49 →" />
+			</article>
+		</div>
+	</section>
+
+	<section class="section section-alt" aria-labelledby="table-heading">
+		<div class="container">
+			<h2 class="section-heading" id="table-heading">ReferralNow and ReferralCandy side by side</h2>
+			<p class="lede">ReferralCandy prices below are from their public pricing page and can change.</p>
+			<div class="compare-wrap">
+				<table class="compare">
+					<thead>
+						<tr>
+							<th scope="col"> </th>
+							<th class="is-highlight" scope="col">ReferralNow Premium</th>
+							<th scope="col">ReferralCandy</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">Pricing</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">$49 once. No monthly software fee on this plan.</td>
+							<td data-label="ReferralCandy">From $39/month, plus a success fee. The Basic plan adds 10.5% of new referral sales.</td>
+						</tr>
+						<tr>
+							<th scope="row">Setup</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">A guided campaign from a trade pack or one sentence. No customer app.</td>
+							<td data-label="ReferralCandy">Install the app, then build campaigns inside an ongoing subscription.</td>
+						</tr>
+						<tr>
+							<th scope="row">Fraud detection</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">The sale is confirmed, then the claim gets a fraud score before a reward moves.</td>
+							<td data-label="ReferralCandy">Tracks referred store orders and bills a success fee on those sales.</td>
+						</tr>
+						<tr>
+							<th scope="row">Shopify integration</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">Direct Shopify connection, plus WooCommerce and other carts.</td>
+							<td data-label="ReferralCandy">A well-known Shopify referral app, billed every month.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="wins-heading">
+		<div class="container narrow">
+			<h2 class="section-heading" id="wins-heading">Where ReferralNow wins</h2>
+			<p class="lede">
+				The one-time pricing model is the practical choice for a small business. Twelve months of
+				ReferralCandy at $39 is $468 before the success fee. ReferralNow Premium is $49 once for the
+				software. You still pay your own rewards, and texts still go through Twilio, but you are not
+				renting the referral tool every month.
+			</p>
+			<p class="lede">
+				ReferralCandy still makes sense for a store that wants that brand, a 7-day trial, and is
+				comfortable with a percentage of referred orders. It is not the cheaper path if you only need
+				the tracking loop.
+			</p>
+			<Cta class="btn section-cta" label="Lock in ReferralNow for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt" id="faq" aria-labelledby="faq-heading">
+		<div class="container">
+			<h2 class="section-heading" id="faq-heading">ReferralNow vs ReferralCandy questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">Skip the monthly referral bill</h2>
+			<p class="subhead">
+				If you already have customers, one new sale covers the $49 software. ReferralCandy keeps
+				charging after that.
+			</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read the <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>$49 once · ReferralCandy starts at $39/month plus fees</p>
+		<Cta class="btn" label="Get ReferralNow Premium for $49 →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			}).observe(trigger);
+		}
+	</script>
+</BaseLayout>

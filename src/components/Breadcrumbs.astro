@@ -1,0 +1,49 @@
+---
+interface Crumb {
+	name: string;
+	href?: string;
+}
+
+interface Props {
+	items: Crumb[];
+	includeSchema?: boolean;
+}
+
+const { items, includeSchema = true } = Astro.props;
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: items.map((item, index) => {
+		const entry: Record<string, unknown> = {
+			'@type': 'ListItem',
+			position: index + 1,
+			name: item.name,
+		};
+		if (item.href) {
+			entry.item = new URL(item.href, Astro.site ?? Astro.url).href;
+		}
+		return entry;
+	}),
+};
+
+const schemaJson = JSON.stringify(schema).replace(/</g, '\\u003c');
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+	<ol>
+		{
+			items.map((item, index) => (
+				<li>
+					{index > 0 && <span aria-hidden="true">/</span>}
+					{item.href && index < items.length - 1 ? (
+						<a href={item.href}>{item.name}</a>
+					) : (
+						<span aria-current="page">{item.name}</span>
+					)}
+				</li>
+			))
+		}
+	</ol>
+</nav>
+{includeSchema && <script type="application/ld+json" set:html={schemaJson} />}

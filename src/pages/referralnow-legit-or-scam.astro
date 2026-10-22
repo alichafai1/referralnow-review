@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'Is ReferralNow Premium a Scam? Honest 2026 Verdict';
+const description =
+	'Worried ReferralNow Premium might be a scam? We analyze the creator (Godswill Okoyomon), the software, the pricing, and the 14-day guarantee to give you the honest truth.';
+const canonicalURL = new URL('/referralnow-legit-or-scam', Astro.site).href;
+
+const faqs = [
+	{
+		q: 'Is ReferralNow Premium a scam?',
+		a: 'No. ReferralNow Premium is real software. It gives customers a referral link, confirms a sale, and then releases a reward. It does not hold your funds or act as a payment processor. You still have to invite customers, and you pay the rewards yourself.',
+	},
+	{
+		q: 'Who is Godswill Okoyomon?',
+		a: 'Godswill Okoyomon is the founder named on the ReferralNow sales page. He is also the founder of ClientForce. The page says he built ReferralNow after years of hearing that a business’s best customers came from other customers, with no system to track those referrals.',
+	},
+	{
+		q: 'Is there a refund policy?',
+		a: 'Yes. The seller gives you 14 days from purchase. If ReferralNow is not doing what the sales page says, their support team will try to get it running first. You can request a refund within those 14 days, under their refund policy.',
+	},
+	{
+		q: 'Does it work with Shopify?',
+		a: 'Yes. Shopify and WooCommerce connect directly. BigCommerce, Wix, and Squarespace do too. Other carts and funnels can confirm a sale with a thank-you tag, and a physical counter works with a QR code.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Legit or scam', href: '/referralnow-legit-or-scam' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: item.a,
+				},
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{
+					'@type': 'ListItem',
+					position: 1,
+					name: 'Home',
+					item: new URL('/', Astro.site).href,
+				},
+				{
+					'@type': 'ListItem',
+					position: 2,
+					name: 'Legit or scam',
+					item: canonicalURL,
+				},
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">Honest 2026 verdict</p>
+			<h1>Is ReferralNow Premium a Scam? The Honest Truth (2026)</h1>
+			<p class="subhead">
+				When a tool promises to track word-of-mouth sales, skepticism is healthy. We analyzed the
+				creator, the software, and the fine print. Here is the unbiased verdict.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="verdict-heading">
+		<div class="container narrow">
+			<article class="answer-box">
+				<p class="eyebrow">Quick verdict</p>
+				<h2 class="section-heading" id="verdict-heading">Verdict: Legit</h2>
+				<p class="lede">
+					ReferralNow Premium is a real software created by Godswill Okoyomon. It does not hold your
+					funds or act as a payment processor. It is a tracking tool to help you manage referrals.
+				</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="section section-alt" aria-labelledby="skepticism-heading">
+		<div class="container narrow">
+			<h2 class="section-heading" id="skepticism-heading">Why People Think It's a Scam</h2>
+			<p class="lede">
+				A lot of referral apps bill every month and still leave you guessing whether a sale was real.
+				That reputation is earned. A one-time offer on a long sales page is a fair reason to pause.
+			</p>
+			<p class="problem-close">
+				ReferralNow is different. It's a one-time payment, and it uses real sale verification to
+				prevent fake referrals.
+			</p>
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="flags-heading">
+		<div class="container">
+			<h2 class="section-heading" id="flags-heading">5 Green Flags</h2>
+			<p class="lede">Why it holds up as a real product, not a PDF pitch.</p>
+			<div class="split-2">
+				<ul class="check-list">
+					<li>
+						<span class="mark mark-yes" aria-hidden="true">✓</span>
+						<span>
+							<strong>Real creator.</strong> Godswill Okoyomon is named on the sales page as the
+							founder, and as the founder of ClientForce.
+						</span>
+					</li>
+					<li>
+						<span class="mark mark-yes" aria-hidden="true">✓</span>
+						<span>
+							<strong>Real software.</strong> It is a web app with an advocate portal, offer pages,
+							and a dashboard. It is not just a PDF.
+						</span>
+					</li>
+					<li>
+						<span class="mark mark-yes" aria-hidden="true">✓</span>
+						<span>
+							<strong>One-time payment.</strong> The launch price is $49 once. There is no monthly
+							software fee on this plan.
+						</span>
+					</li>
+				</ul>
+				<ul class="check-list">
+					<li>
+						<span class="mark mark-yes" aria-hidden="true">✓</span>
+						<span>
+							<strong>14-day money-back guarantee.</strong> You can request a refund within 14 days
+							if it is not doing what the sales page says.
+						</span>
+					</li>
+					<li>
+						<span class="mark mark-yes" aria-hidden="true">✓</span>
+						<span>
+							<strong>Works with major platforms.</strong> Shopify and WooCommerce connect directly,
+							along with BigCommerce, Wix, and Squarespace.
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section-alt" aria-labelledby="limits-heading">
+		<div class="container narrow">
+			<h2 class="section-heading" id="limits-heading">2 Red Flags</h2>
+			<p class="lede">These are limits, not proof of a scam. They still belong in the decision.</p>
+			<ul class="check-list">
+				<li>
+					<span class="mark mark-warn" aria-hidden="true">!</span>
+					<span>
+						<strong>You pay the rewards.</strong> The software tracks the sales, but you, the business
+						owner, have to pay the rewards, such as 10% off the next order. That is still usually
+						cheaper than ads, because you pay after a real sale.
+					</span>
+				</li>
+				<li>
+					<span class="mark mark-warn" aria-hidden="true">!</span>
+					<span>
+						<strong>Twilio fees.</strong> If you use SMS texts, Twilio charges a small fee. Those
+						message costs are separate from the $49.
+					</span>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="skip-heading">
+		<div class="container narrow">
+			<h2 class="section-heading" id="skip-heading">Who Should NOT Buy This?</h2>
+			<p class="lede">
+				People with zero customers. You need a customer base first. A referral link with nobody to
+				send it to will not create a business.
+			</p>
+			<p class="lede">
+				People looking for a fully automated “set and forget” system. You still need to promote the
+				program. Customers will not share it if you never ask.
+			</p>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt" id="faq" aria-labelledby="faq-heading">
+		<div class="container">
+			<h2 class="section-heading" id="faq-heading">Questions about whether it is legit</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">If the limits are acceptable, test it</h2>
+			<p class="subhead">
+				The honest read is that ReferralNow Premium is legitimate software with a one-time price and a
+				14-day window. It will not run your referral program for you.
+			</p>
+			<Cta class="btn btn-lg" label="Try ReferralNow Premium Risk-Free Today →" />
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>Legit software · $49 once · 14-day window</p>
+		<Cta class="btn" label="Try ReferralNow Premium Risk-Free Today →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			const observer = new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			});
+			observer.observe(trigger);
+		}
+	</script>
+</BaseLayout>

@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Cta from '../components/Cta.astro';
+
+const title = 'ReferralNow vs. Yotpo: Which Referral Tool Should You Choose?';
+const description =
+	'ReferralNow vs Yotpo. Yotpo is a reviews, loyalty, and referrals suite from $199 a month on Pro. ReferralNow Premium is referrals only, for $49 once.';
+const canonicalURL = new URL('/referralnow-vs-yotpo', Astro.site).href;
+
+const faqs = [
+	{
+		q: 'Is Yotpo only a referral tool?',
+		a: 'No. Yotpo is a large ecommerce suite. Loyalty and Referrals sits next to reviews, SMS, and other products. ReferralNow does one job: track referrals, confirm the sale, and release a reward.',
+	},
+	{
+		q: 'How much does Yotpo referrals cost?',
+		a: 'Yotpo Loyalty and Referrals has a free plan with basic referrals. The Pro plan starts at $199 a month and then adds a per-order rate after the included orders. ReferralNow Premium is $49 once.',
+	},
+	{
+		q: 'Do both work with Shopify?',
+		a: 'Yes. Yotpo is built for Shopify and other major carts. ReferralNow connects directly to Shopify, WooCommerce, BigCommerce, Wix, and Squarespace.',
+	},
+	{
+		q: 'When is Yotpo the better buy?',
+		a: 'Choose Yotpo if you want reviews, loyalty points, VIP tiers, and referrals in one vendor and you can pay a monthly suite price. Choose ReferralNow if you only need the referral loop and you do not want another subscription.',
+	},
+];
+
+const crumbs = [
+	{ name: 'Home', href: '/' },
+	{ name: 'Vs Yotpo', href: '/referralnow-vs-yotpo' },
+];
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'FAQPage',
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.q,
+				acceptedAnswer: { '@type': 'Answer', text: item.a },
+			})),
+		},
+		{
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+				{ '@type': 'ListItem', position: 2, name: 'Vs Yotpo', item: canonicalURL },
+			],
+		},
+	],
+};
+---
+
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} schema={schema}>
+	<section class="hero hero-plain">
+		<div class="container">
+			<Breadcrumbs items={crumbs} includeSchema={false} />
+			<p class="eyebrow">Suite vs a single referral tool</p>
+			<h1>ReferralNow vs. Yotpo: Which Referral Tool Should You Choose?</h1>
+			<p class="subhead">
+				Yotpo sells reviews, loyalty, referrals, and more, and the paid referral plan starts at $199 a
+				month. ReferralNow Premium only tracks referrals, and the software is $49 once.
+			</p>
+			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium for $49 →" />
+			<p class="page-links">
+				<a href="/">Read our full <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See the <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container narrow">
+			<article class="answer-box">
+				<p class="eyebrow">Quick verdict</p>
+				<h2 class="section-heading">Do not buy a suite for one feature</h2>
+				<p class="lede">
+					Yotpo is a massive ecommerce suite for reviews, referrals, and loyalty, and the useful
+					referral features sit on a monthly plan. ReferralNow focuses on referrals and is a one-time
+					payment.
+				</p>
+				<Cta class="btn section-cta" label="Get ReferralNow Premium for $49 →" />
+			</article>
+		</div>
+	</section>
+
+	<section class="section section-alt" aria-labelledby="table-heading">
+		<div class="container">
+			<h2 class="section-heading" id="table-heading">Price, focus, and Shopify</h2>
+			<p class="lede">Yotpo Loyalty and Referrals prices are from Yotpo’s public pricing and can change.</p>
+			<div class="compare-wrap">
+				<table class="compare">
+					<thead>
+						<tr>
+							<th scope="col"> </th>
+							<th class="is-highlight" scope="col">ReferralNow Premium</th>
+							<th scope="col">Yotpo</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">Price</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">$49 once. No monthly software fee on this plan.</td>
+							<td data-label="Yotpo">Free plan is basic. Pro Loyalty and Referrals starts at $199/month, then a per-order rate.</td>
+						</tr>
+						<tr>
+							<th scope="row">Core focus</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">Referrals only: link, confirmed sale, fraud score, reward.</td>
+							<td data-label="Yotpo">Reviews, loyalty points, VIP tiers, and referrals in one vendor.</td>
+						</tr>
+						<tr>
+							<th scope="row">Shopify support</th>
+							<td class="is-highlight" data-label="ReferralNow Premium">Direct Shopify and WooCommerce connections, plus other carts.</td>
+							<td data-label="Yotpo">Native ecommerce stack, including Shopify. You pay for the suite, not a single referral switch.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="section" aria-labelledby="fit-heading">
+		<div class="container narrow">
+			<h2 class="section-heading" id="fit-heading">Where the one-time tool wins</h2>
+			<p class="lede">
+				If you already pay for reviews somewhere else, adding Yotpo referrals means another monthly
+				product, often from $199. ReferralNow does not replace your review app. It replaces the
+				monthly referral subscription. One new customer covers $49. It does not cover a $199 line that
+				renews.
+			</p>
+			<p class="lede">
+				Stay with Yotpo if you want points, tiers, and referrals managed in that ecosystem and the
+				monthly price fits the store. Move the referral job to ReferralNow if that is the only gap.
+			</p>
+			<Cta class="btn section-cta" label="Lock in ReferralNow for $49 →" />
+		</div>
+	</section>
+
+	<section class="section section-alt" id="faq" aria-labelledby="faq-heading">
+		<div class="container">
+			<h2 class="section-heading" id="faq-heading">ReferralNow vs Yotpo questions</h2>
+			<div class="faq-list">
+				{
+					faqs.map((item) => (
+						<details class="faq-item">
+							<summary>{item.q}</summary>
+							<p>{item.a}</p>
+						</details>
+					))
+				}
+			</div>
+			<Cta class="btn btn-lg section-cta" label="Get ReferralNow Premium for $49 →" />
+		</div>
+	</section>
+
+	<section class="final-band">
+		<div class="container">
+			<h2 class="section-heading">Buy the referral tool, not the whole suite</h2>
+			<p class="subhead">
+				ReferralNow confirms sales, scores claims, and stops at a one-time software fee. You still pay
+				the rewards your customers earn.
+			</p>
+			<Cta class="btn btn-lg" label="Get ReferralNow Premium + My Bonuses →" />
+			<p class="page-links">
+				<a href="/">Read the <strong>ReferralNow Premium Review</strong> →</a>
+				<a href="/referralnow-pricing">See <strong>ReferralNow Premium Pricing</strong> →</a>
+				<a href="/referralnow-bonus">Claim your <strong>Exclusive Bonuses</strong> →</a>
+			</p>
+		</div>
+	</section>
+
+	<aside class="sticky-cta" aria-label="Get ReferralNow Premium" hidden>
+		<p>$49 once · Yotpo referrals Pro starts at $199/month</p>
+		<Cta class="btn" label="Get ReferralNow Premium for $49 →" />
+	</aside>
+	<script>
+		const bar = document.querySelector('.sticky-cta');
+		const trigger = document.querySelector('.hero-cta');
+		if (bar instanceof HTMLElement && trigger) {
+			new IntersectionObserver(([entry]) => {
+				bar.hidden = entry.isIntersecting;
+			}).observe(trigger);
+		}
+	</script>
+</BaseLayout>

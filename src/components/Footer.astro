@@ -1,0 +1,91 @@
+---
+import Logo from './Logo.astro';
+
+const explore = [
+	{ href: '/#review', label: 'Review' },
+	{ href: '/referralnow-pricing', label: 'Pricing guide' },
+	{ href: '/best-referral-marketing-software', label: 'Alternatives' },
+	{ href: '/referralnow-bonus', label: 'Bonuses' },
+	{ href: '/referralnow-legit-or-scam', label: 'Legit or scam' },
+	{ href: '/referralnow-vs-referralcandy', label: 'Vs ReferralCandy' },
+	{ href: '/referralnow-vs-referral-rock', label: 'Vs Referral Rock' },
+	{ href: '/referralnow-vs-yotpo', label: 'Vs Yotpo' },
+	{ href: '/best-referral-marketing-software', label: 'Best referral software' },
+	{ href: '/best-referral-program-tools', label: 'Best tools for small business' },
+	{ href: '/referralnow-for-ecommerce', label: 'For ecommerce' },
+	{ href: '/referralnow-for-local-businesses', label: 'For local businesses' },
+	{ href: '/referralnow-for-affiliate-marketers', label: 'For affiliates' },
+	{ href: '/referralnow-for-saas', label: 'For SaaS' },
+	{ href: '/how-to-build-a-referral-program', label: 'How to build a program' },
+	{ href: '/referral-program-metrics-guide', label: 'Referral metrics' },
+	{ href: '/referralnow-features-explained', label: 'Features explained' },
+	{ href: '/referralnow-tutorial', label: 'Tutorial' },
+	{ href: '/referral-email-templates', label: 'Email templates' },
+];
+
+const onThisPage = [
+	{ href: '/#watch', label: 'Watch overview' },
+	{ href: '/#how', label: 'How it works' },
+	{ href: '/#features', label: 'Features' },
+	{ href: '/#pricing', label: 'Pricing' },
+	{ href: '/#faq', label: 'FAQ' },
+];
+
+const legal = [
+	{ href: '/affiliate-disclosure', label: 'Affiliate disclosure' },
+	{ href: '/privacy-policy', label: 'Privacy policy' },
+	{ href: '/terms', label: 'Terms of service' },
+];
+---
+
+<footer class="site-footer">
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<Logo />
+				<p>An independent review of ReferralNow Premium, the one-time referral system for stores, local businesses, and online sellers.</p>
+			</div>
+			<nav aria-label="Explore">
+				<h2>Explore</h2>
+				<ul>
+					{
+						explore.map((link) => (
+							<li>
+								<a href={link.href}>{link.label}</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+			<nav aria-label="On this page">
+				<h2>On this page</h2>
+				<ul>
+					{
+						onThisPage.map((link) => (
+							<li>
+								<a href={link.href}>{link.label}</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+			<nav aria-label="Legal">
+				<h2>Legal</h2>
+				<ul>
+					{
+						legal.map((link) => (
+							<li>
+								<a href={link.href}>{link.label}</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+		</div>
+		<div class="footer-bottom">
+			<p class="copyright">
+				© 2026 ReferralNowReview.com. All rights reserved. We are an independent review site and may earn a commission from links on this page.
+			</p>
+		</div>
+	</div>
+</footer>

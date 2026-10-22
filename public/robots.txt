@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://referralnowreview.com/sitemap-index.xml
