@@ -105,13 +105,34 @@ const schema = {
 			</p>
 			<Cta class="btn btn-lg hero-cta" label="Get ReferralNow Premium + My Bonuses →" />
 			<div class="video-frame" id="watch">
-				<span class="play-icon" aria-hidden="true">
-					<svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-						<path d="M11 8.2v11.6l10-5.8-10-5.8Z" fill="#2563EB"></path>
-					</svg>
-				</span>
-				<p>Watch How ReferralNow Works</p>
+				<video
+					class="hero-video"
+					poster="/images/referralnow-thumbnail.jpg"
+					preload="metadata"
+					playsinline
+				>
+					<source src="/video/referralnow.mp4" type="video/mp4" />
+				</video>
+				<button class="video-play" type="button" id="play-referralnow">
+					<span class="play-icon" aria-hidden="true">
+						<svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+							<path d="M11 8.2v11.6l10-5.8-10-5.8Z" fill="#2563EB"></path>
+						</svg>
+					</span>
+					<span>Watch How ReferralNow Works</span>
+				</button>
 			</div>
+			<script>
+				const frame = document.querySelector('.video-frame');
+				const video = frame?.querySelector('video');
+				const button = document.getElementById('play-referralnow');
+				button?.addEventListener('click', () => {
+					if (!(video instanceof HTMLVideoElement)) return;
+					frame?.classList.add('is-playing');
+					video.controls = true;
+					void video.play();
+				});
+			</script>
 		</div>
 	</section>
 
@@ -120,6 +141,10 @@ const schema = {
 			<article class="verdict-card">
 				<div>
 					<p class="rating-score">4.6<span>/5</span></p>
+					<p class="rating-stars" aria-hidden="true">
+						<span class="stars-base">★★★★★</span>
+						<span class="stars-fill">★★★★★</span>
+					</p>
 					<p class="rating-label">Our score</p>
 				</div>
 				<div>
