@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://referralnowreview.com',
+	site: 'https://www.referralnow.info',
 	trailingSlash: 'never',
 	build: {
 		format: 'directory',
